@@ -106,7 +106,20 @@ public class TestUser {
             System.out.println("[RECHERCHE]Erreur :: "+e);
         }
         
-        
+        /*
+        ==========================================================================================
+            Test suppression créateur 
+        ==========================================================================================
+        */
+        try{ 
+            System.out.println("[SUPRESSION]Debut de la supression de admin");
+            System.out.println("[SUPRESSION] admin");
+            c2.setIduser(3);
+            c2.delete();
+            System.out.println("[SUPRESSION]Fin de la supression de admin");
+        }catch(Exception e){
+            System.out.println("[SUPRESSION]Erreur :: "+e);
+        }
      
          
         
