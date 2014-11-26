@@ -2,14 +2,21 @@ package be.condorcet.projetgroup2;
 
 
 
+import be.condorcet.R;
+import classdb.UserDB;
+import Connexion.DBConnection;
 import android.support.v7.app.ActionBarActivity;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity {
 	
@@ -20,6 +27,8 @@ public class MainActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		ed1=(EditText) findViewById(R.id.texte1);
+		ed2=(EditText) findViewById(R.id.texte2);
 		suivant=(Button)findViewById(R.id.ok);
 		
 		suivant.setOnClickListener(
@@ -54,4 +63,84 @@ public class MainActivity extends ActionBarActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	@Override
+	public void onDestroy(){
+		super.onDestroy();
+		 try {
+	          con.close();
+	          con=null;
+	          Log.d("connexion","deconnexion OK");
+	          }
+	          catch (Exception e) { 
+	          }
+		 Log.d("connexion","deconnexion OK");
+		
+	}
+	
+class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
+	    private String resultat;
+	    private ProgressDialog pgd=null;
+	    
+							
+				public MyAccesDB(MainActivity pActivity) {
+				
+					link(pActivity);
+					// TODO Auto-generated constructor stub
+				}
+
+				private void link(MainActivity pActivity) {
+					// TODO Auto-generated method stub
+				
+					
+				}
+				//se fait avant l'opération
+				protected void onPreExecute(){
+					 super.onPreExecute();
+			         pgd=new ProgressDialog(MainActivity.this);
+					 pgd.setMessage("chargement en cours");
+					 pgd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+		     		 pgd.show();
+												
+				}
+				//se fait pendant l'opération
+				@Override
+				protected Boolean doInBackground(String... arg0) {
+										
+				   if(con==null){//premier invocation
+					   con = new DBConnection().getConnection(); 
+				    	if(con==null) {
+					    resultat="echec de la connexion";
+				      	return false;
+					    }
+				  
+					   ClientDB.setConnection(con);
+				   }
+				    int id=Integer.parseInt(ed1.getText().toString());	
+			        try{
+			        	
+			           ClientDB cl=new ClientDB(id);	
+			           cl.read();
+			           resultat=cl.toString();
+			       
+			          		           
+			        }
+			        catch(Exception e){		             
+			         resultat="erreur" +e.getMessage(); 
+			         return false;
+			         
+			         }
+			               
+				
+					return true;
+				}
+				//se fait après l'opération, impossible de modifier des valeurs
+				protected void onPostExecute(Boolean result){
+					 super.onPostExecute(result);
+					  pgd.dismiss();
+					  ed2.setText(resultat);
+								
+				}
+		
+			}
 }
