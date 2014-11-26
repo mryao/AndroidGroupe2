@@ -22,6 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".CreerTache"
+            android:label="@string/title_activity_creer_tache" >
+        </activity>
     </application>
 
 </manifest>

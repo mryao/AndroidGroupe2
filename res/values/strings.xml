@@ -2,7 +2,9 @@
 <resources>
 
     <string name="app_name">ProjetGroup2</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">Bienvenue!</string>
     <string name="action_settings">Settings</string>
+    <string name="ok">OK</string>
+    <string name="title_activity_creer_tache">CreerTache</string>
 
 </resources>
