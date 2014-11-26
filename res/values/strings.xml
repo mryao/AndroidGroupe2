@@ -5,6 +5,11 @@
     <string name="hello_world">Bienvenue!</string>
     <string name="action_settings">Settings</string>
     <string name="ok">OK</string>
-    <string name="title_activity_creer_tache">CreerTache</string>
+    <string name="title_activity_creer_tache">Créer Tâche</string>
+    <string name="titre">Titre : </string>
+    <string name="description">Description : </string>
+    <string name="date">Date : </string>
+    <string name="numero_ordre">Numéro d\'ordre : </string>
+    <string name="depanneur">Dépanneur : </string>
 
 </resources>
