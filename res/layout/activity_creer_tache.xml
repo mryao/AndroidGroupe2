@@ -124,5 +124,23 @@
 	        <requestFocus />
 	    </EditText>
 	    
+	    <Button 
+	        android:id="@+id/ajouter"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/depanneuredit"
+	        android:layout_below="@+id/depanneuredit"
+	        android:layout_marginTop="15dp"
+	        android:text="@string/ajouter" />
+
+	    <Button
+	        android:id="@+id/reset"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBaseline="@+id/ajouter"
+	        android:layout_alignBottom="@+id/ajouter"
+	        android:layout_toRightOf="@+id/ordre4"
+	        android:text="@string/reset" />
+	    
 	</RelativeLayout>
 </ScrollView>
