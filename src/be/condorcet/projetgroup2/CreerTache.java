@@ -2,7 +2,6 @@ package be.condorcet.projetgroup2;
 
 import java.sql.Connection;
 
-import be.condorcet.R;
 import classdb.TacheDB;
 import Connexion.DBConnection;
 import android.support.v7.app.ActionBarActivity;

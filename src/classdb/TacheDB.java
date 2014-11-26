@@ -15,10 +15,10 @@ public class TacheDB extends Tache implements CRUD{
     public TacheDB() {
     }
 
-    public TacheDB(String titre, String description, String etat,
+    public TacheDB(String titre, String description,
             String date_tache, int num_ordre, int depanneur, int createur) {
-        super(titre, description, etat, date_tache, num_ordre, depanneur, createur);
-    }
+        super(titre, description, "Planifiée", date_tache, num_ordre, depanneur, createur);
+    }//constructeur pour la création 
 
     public TacheDB(int idtache, String titre, String description, String etat,
             String date_tache, int num_ordre, int depanneur, int createur) {

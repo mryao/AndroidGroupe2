@@ -1,8 +1,6 @@
 package be.condorcet.projetgroup2;
 
-
-
-import be.condorcet.R;
+import java.sql.Connection;
 import classdb.UserDB;
 import Connexion.DBConnection;
 import android.support.v7.app.ActionBarActivity;
@@ -20,6 +18,7 @@ import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity {
 	
+	private Connection con=null; 
 	private Button suivant =null;
 
 	@Override
@@ -27,8 +26,8 @@ public class MainActivity extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		ed1=(EditText) findViewById(R.id.texte1);
-		ed2=(EditText) findViewById(R.id.texte2);
+		/*ed1=(EditText) findViewById(R.id.texte1);
+		ed2=(EditText) findViewById(R.id.texte2);*/
 		suivant=(Button)findViewById(R.id.ok);
 		
 		suivant.setOnClickListener(
@@ -114,16 +113,15 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 				      	return false;
 					    }
 				  
-					   ClientDB.setConnection(con);
+					   UserDB.setConnection(con);
 				   }
 				    int id=Integer.parseInt(ed1.getText().toString());	
 			        try{
 			        	
-			           ClientDB cl=new ClientDB(id);	
-			           cl.read();
-			           resultat=cl.toString();
+			        	UserDB us=new UserDB(id);	
+			            us.read(id);
+			            int resultatId=us.getIduser();
 			       
-			          		           
 			        }
 			        catch(Exception e){		             
 			         resultat="erreur" +e.getMessage(); 
