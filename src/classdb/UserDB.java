@@ -12,14 +12,16 @@ public class UserDB extends User implements CRUD{
 
     public UserDB() {
     }
+    
+    public UserDB( String login,String motdepasse) {
+        super(0,"","",login, motdepasse,0);
+    }
 
-    public UserDB(String nom, String prenom, String login,
-            String motdepasse, int admin) {
+    public UserDB(String nom, String prenom, String login, String motdepasse, int admin) {
         super(nom, prenom, login, motdepasse, admin);
     }
 
-    public UserDB(int iduser, String nom, String prenom, String login,
-            String motdepasse, int admin) {
+    public UserDB(int iduser, String nom, String prenom, String login, String motdepasse, int admin) {
         super(iduser, nom, prenom, login, motdepasse, admin);
     }
 
@@ -174,9 +176,7 @@ public class UserDB extends User implements CRUD{
         }
         catch(Exception e) {
             throw new Exception(e.getMessage());
-        }
-        
-        
+        }   
     }
     
     public void logon(String login,String mot_de_passe)throws Exception{
