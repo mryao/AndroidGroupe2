@@ -12,6 +12,10 @@ public class UserDB extends User implements CRUD{
 
     public UserDB() {
     }
+    
+    public UserDB( String login,String motdepasse) {
+        super(0,"","",login, motdepasse,0);
+    }
 
     public UserDB(String nom, String prenom, String login,
             String motdepasse, int admin) {
