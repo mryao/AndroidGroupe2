@@ -178,5 +178,39 @@ public class UserDB extends User implements CRUD{
         
         
     }
+    
+    public void logon(String login,String mot_de_passe)throws Exception{
+        
+        CallableStatement cstmt=null;
+        try{
+            boolean trouve=false;
+             String query1="SELECT * FROM users WHERE login = ? and mot_de_passe= ?";
+             PreparedStatement pstm1 = dbConnect.prepareStatement(query1);
+             pstm1.setString(1,login);
+             pstm1.setString(2,mot_de_passe);
+             ResultSet rs= pstm1.executeQuery();
+             if(rs.next()){
+                 trouve = true;
+                 iduser = rs.getInt("ID_USER");
+                 nom = rs.getString("NOM");
+                 prenom = rs.getString("PRENOM");
+                 login = rs.getString("LOGIN");
+                 motdepasse = rs.getString("MOT_DE_PASSE");
+                 admin = rs.getInt("ADMIN");
+                 
+             }
+             if(!trouve)throw new Exception("Combinaison login/password invalide");
+        }
+	catch(Exception e){
+             
+                throw new Exception("Erreur de lecture "+e.getMessage());
+             }
+        finally{//effectué dans tous les cas 
+            try{
+              cstmt.close();
+            }
+            catch (Exception e){}
+        }
+     }
 
 }
