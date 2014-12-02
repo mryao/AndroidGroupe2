@@ -13,5 +13,6 @@
     <string name="depanneur">Dépanneur : </string>
     <string name="ajouter">Ajouter</string>
     <string name="reset">Vider les champs</string>
+    <string name="connexion">Connexion</string>
 
 </resources>
