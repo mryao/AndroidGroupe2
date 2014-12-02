@@ -22,6 +22,7 @@ public class MainActivity extends ActionBarActivity {
 	private Button suivant =null;
 	private EditText ed1;
 	private EditText ed2;
+	private int id;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class MainActivity extends ActionBarActivity {
 					public void onClick(View v){
 						
 						Intent i = new Intent(MainActivity.this,CreerTache.class);
+						i.putExtra(Integer.parseInt(ed2.getText()), id);
 						startActivity(i);
 					
 					}//fin méthode onClick
