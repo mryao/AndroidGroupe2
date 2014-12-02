@@ -205,7 +205,7 @@ public class UserDB extends User implements CRUD{
              
                 throw new Exception("Erreur de lecture "+e.getMessage());
              }
-        finally{//effectué dans tous les cas 
+        finally{//effectué dans tous les cas bite
             try{
               cstmt.close();
             }
