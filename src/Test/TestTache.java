@@ -29,9 +29,9 @@ public class TestTache {
         */
         try{
             System.out.println("[INSERTION]Debut de l'ajout de la c1");
-            c1=new TacheDB("tache1","tache test1","en cours","19/11/2014",4,2,3);
+            c1=new TacheDB("tache1","tache test1","19/11/2014",4,2,3);
             c1.create();
-            c2=new TacheDB("tache2","tache test2","en cours","20/11/2014",6,2,3);
+            c2=new TacheDB("tache2","tache test2","20/11/2014",6,2,3);
             c2.create();
             
             System.out.println("[INSERTION]tache 1 = "+c1.toString());
@@ -47,7 +47,7 @@ public class TestTache {
         */
         try{
             System.out.println("[DOUBLON]Debut de l'ajout du doublon");
-            c3=new TacheDB("tache1","tache test1","en cours","19/11/2014",4,2,3);
+            c3=new TacheDB("tache1","tache test1","19/11/2014",4,2,3);
             c3.create();
             
             
