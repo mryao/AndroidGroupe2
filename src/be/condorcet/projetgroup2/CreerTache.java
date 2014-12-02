@@ -21,6 +21,7 @@ public class CreerTache extends ActionBarActivity {
 	private EditText date_tache;
 	private EditText num;
 	private EditText depanneur;
+	private Button suivant;
 	
 	private Connection con=null;
 	@Override
@@ -104,10 +105,15 @@ public class CreerTache extends ActionBarActivity {
 					  
 						   TacheDB.setConnection(con);
 					   }
-					    int id=Integer.parseInt(ed1.getText().toString());	
+					    String vtitre=titre.getText().toString();
+					    String vdesc=description.getText().toString();
+					    String vdate=date_tache.getText().toString();
+					    int vnum = Integer.parseInt(num.getText().toString());
+					    int vdepanneur = Integer.parseInt(depanneur.getText().toString());
+					   					    
 				        try{
 				        	
-				        	TacheDB tc=new TacheDB(id);	
+				        	TacheDB tc=new TacheDB(vtitre,vdesc,vdate,vnum,vdepanneur,id_user);	
 				           	       
 				          		           
 				        }

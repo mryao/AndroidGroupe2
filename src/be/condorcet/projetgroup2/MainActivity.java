@@ -20,15 +20,17 @@ public class MainActivity extends ActionBarActivity {
 	
 	private Connection con=null; 
 	private Button suivant =null;
+	private EditText ed1;
+	private EditText ed2;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		/*ed1=(EditText) findViewById(R.id.texte1);
-		ed2=(EditText) findViewById(R.id.texte2);*/
-		suivant=(Button)findViewById(R.id.ok);
+		ed1=(EditText) findViewById(R.id.login1);
+		ed2=(EditText) findViewById(R.id.password2);
+		suivant=(Button)findViewById(R.id.connexion);
 		
 		suivant.setOnClickListener(
 				new OnClickListener(){
@@ -115,11 +117,12 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 				  
 					   UserDB.setConnection(con);
 				   }
-				    int id=Integer.parseInt(ed1.getText().toString());	
+				    String ulogin=ed1.getText().toString();	
+				    String upassword=ed2.getText().toString();
 			        try{
 			        	
-			        	UserDB us=new UserDB(id);	
-			            us.read(id);
+			        	UserDB us=new UserDB(ulogin,upassword);	
+			            
 			            int resultatId=us.getIduser();
 			       
 			        }
