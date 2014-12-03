@@ -22,7 +22,9 @@ public class MainActivity extends ActionBarActivity {
 	private Button suivant =null;
 	private EditText ed1;
 	private EditText ed2;
-	private int id;
+	private EditText error;
+	private String sendid;
+	public static final String sendid2 = "";	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class MainActivity extends ActionBarActivity {
 		
 		ed1=(EditText) findViewById(R.id.login1);
 		ed2=(EditText) findViewById(R.id.password2);
+		error=(EditText) findViewById(R.id.erreur);
 		suivant=(Button)findViewById(R.id.connexion);
 		
 		suivant.setOnClickListener(
@@ -39,7 +42,7 @@ public class MainActivity extends ActionBarActivity {
 					public void onClick(View v){
 						
 						Intent i = new Intent(MainActivity.this,CreerTache.class);
-						i.putExtra(Integer.parseInt(ed2.getText()), id);
+						i.putExtra(sendid2,sendid);
 						startActivity(i);
 					
 					}//fin méthode onClick
@@ -83,6 +86,7 @@ public class MainActivity extends ActionBarActivity {
 	
 class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 	    private String resultat;
+	    private int resultatId;
 	    private ProgressDialog pgd=null;
 	    
 							
@@ -121,19 +125,17 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 				   }
 				    String ulogin=ed1.getText().toString();	
 				    String upassword=ed2.getText().toString();
-			        try{
-			        	
+			        try{			        	
 			        	UserDB us=new UserDB(ulogin,upassword);	
-			            
-			            int resultatId=us.getIduser();
-			       
+			            us.logon(ulogin, upassword);
+			            resultatId=us.getIduser();			       
 			        }
 			        catch(Exception e){		             
 			         resultat="erreur" +e.getMessage(); 
 			         return false;
 			         
 			         }
-			               
+			              
 				
 					return true;
 				}
@@ -141,7 +143,8 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 				protected void onPostExecute(Boolean result){
 					 super.onPostExecute(result);
 					  pgd.dismiss();
-					  ed2.setText(resultat);
+					  error.setText(resultat);
+					  sendid = Integer.toString(resultatId);
 								
 				}
 		

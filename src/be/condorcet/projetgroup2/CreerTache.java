@@ -3,9 +3,11 @@ package be.condorcet.projetgroup2;
 import java.sql.Connection;
 
 import classdb.TacheDB;
+import classdb.UserDB;
 import Connexion.DBConnection;
 import android.support.v7.app.ActionBarActivity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,7 +23,10 @@ public class CreerTache extends ActionBarActivity {
 	private EditText date_tache;
 	private EditText num;
 	private EditText depanneur;
+	private EditText error;
 	private Button suivant;
+	private String recId;
+	private int id;
 	
 	private Connection con=null;
 	@Override
@@ -34,8 +39,13 @@ public class CreerTache extends ActionBarActivity {
 		date_tache=(EditText) findViewById(R.id.date3);
 		num=(EditText) findViewById(R.id.ordre4);
 		depanneur=(EditText) findViewById(R.id.depanneur5);
+		error=(EditText) findViewById(R.id.erreur);
+		suivant=(Button)findViewById(R.id.ajouter);
 		
-		suivant=(Button)findViewById(R.id.ok);
+		Intent i=getIntent();
+		recId = i.getParcelableExtra(MainActivity.sendid2);
+		id = Integer.parseInt(recId);
+	    UserDB us = new UserDB(id);
 	}
 
 	@Override
@@ -110,11 +120,10 @@ public class CreerTache extends ActionBarActivity {
 					    String vdate=date_tache.getText().toString();
 					    int vnum = Integer.parseInt(num.getText().toString());
 					    int vdepanneur = Integer.parseInt(depanneur.getText().toString());
-					   					    
+					    					   					    
 				        try{
 				        	
-				        	TacheDB tc=new TacheDB(vtitre,vdesc,vdate,vnum,vdepanneur,id_user);	
-				           	       
+				        	TacheDB tc=new TacheDB(vtitre,vdesc,vdate,vnum,vdepanneur,id);				           	       
 				          		           
 				        }
 				        catch(Exception e){		             
@@ -130,7 +139,7 @@ public class CreerTache extends ActionBarActivity {
 					protected void onPostExecute(Boolean result){
 						 super.onPostExecute(result);
 						  pgd.dismiss();
-						  ed2.setText(resultat);
+						  error.setText(resultat);
 									
 					}
 			
