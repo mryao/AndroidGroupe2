@@ -1,0 +1,136 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+	<RelativeLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:paddingBottom="@dimen/activity_vertical_margin"
+	    android:paddingLeft="@dimen/activity_horizontal_margin"
+	    android:paddingRight="@dimen/activity_horizontal_margin"
+	    android:paddingTop="@dimen/activity_vertical_margin"
+	    tools:context="be.condorcet.projetgroup2.CreerTache" >
+	
+	    <TextView
+	        android:id="@+id/titre1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentLeft="true"
+	        android:layout_alignParentTop="true"
+	        android:layout_marginTop="15dp"
+	        android:text="@string/titre" />
+	    
+	    <EditText
+	        android:id="@+id/titreedit"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBottom="@+id/titre1"
+	        android:layout_marginLeft="65dp"
+	        android:layout_toRightOf="@+id/description2"
+	        android:ems="10"
+	        android:inputType="text" />
+
+	    <TextView
+	        android:id="@+id/description2"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/titre1"
+	        android:layout_below="@+id/titreedit"
+	        android:layout_marginTop="15dp"
+	        android:text="@string/description" />
+
+	    <EditText
+	        android:id="@+id/descriptionedit"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBottom="@+id/description2"
+	        android:layout_alignLeft="@+id/titreedit"
+	        android:ems="10"
+	        android:inputType="text" />
+
+	    <TextView
+	        android:id="@+id/date3"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/description2"
+	        android:layout_below="@+id/description2"
+	        android:layout_marginTop="15dp"
+	        android:text="@string/date" />
+
+	    <EditText
+	        android:id="@+id/dateedit"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBottom="@+id/date3"
+	        android:layout_alignLeft="@+id/descriptionedit"
+	        android:ems="10"
+	        android:inputType="text" />
+
+	    <TextView
+	        android:id="@+id/ordre4"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/date3"
+	        android:layout_below="@+id/date3"
+	        android:layout_marginTop="15dp"
+	        android:text="@string/numero_ordre" />
+
+	    <EditText
+	        android:id="@+id/ordreedit"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBottom="@+id/ordre4"
+	        android:layout_alignLeft="@+id/dateedit"
+	        android:ems="10"
+	        android:inputType="number" />
+
+	    <TextView
+	        android:id="@+id/depanneur5"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/ordre4"
+	        android:layout_below="@+id/ordre4"
+	        android:layout_marginTop="15dp"
+	        android:text="@string/depanneur" />
+
+	    <EditText
+	        android:id="@+id/depanneuredit"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBottom="@+id/depanneur5"
+	        android:layout_alignLeft="@+id/ordreedit"
+	        android:ems="10"
+	        android:inputType="number" />
+	    
+	    <TextView
+	        android:id="@+id/erreur"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/depanneuredit"
+	        android:layout_below="@+id/depanneuredit"
+	        android:layout_marginTop="15dp"
+	        android:text="" />
+	    
+	    <Button 
+	        android:id="@+id/ajouter"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignLeft="@+id/erreur"
+	        android:layout_below="@+id/erreur"
+	        android:layout_marginTop="15dp"
+	        android:text="@string/ajouter" />
+
+	    <Button
+	        android:id="@+id/reset"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBaseline="@+id/ajouter"
+	        android:layout_alignBottom="@+id/ajouter"
+	        android:layout_marginLeft="15dp"
+	        android:layout_toRightOf="@+id/ajouter"
+	        android:text="@string/reset" />
+	    
+	</RelativeLayout>
+</ScrollView>

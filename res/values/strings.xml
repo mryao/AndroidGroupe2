@@ -9,7 +9,7 @@
     <string name="titre">Titre : </string>
     <string name="description">Description : </string>
     <string name="date">Date : </string>
-    <string name="numero_ordre">Numéro d\'ordre : </string>
+    <string name="numero_ordre">Ordre : </string>
     <string name="depanneur">Dépanneur : </string>
     <string name="ajouter">Ajouter</string>
     <string name="reset">Vider les champs</string>
