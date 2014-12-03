@@ -123,16 +123,14 @@ public class CreerTache extends ActionBarActivity {
 					    					   					    
 				        try{
 				        	
-				        	TacheDB tc=new TacheDB(vtitre,vdesc,vdate,vnum,vdepanneur,id);				           	       
-				          		           
+				        	TacheDB tc=new TacheDB(vtitre,vdesc,vdate,vnum,vdepanneur,id);         	       
 				        }
 				        catch(Exception e){		             
 				         resultat="erreur" +e.getMessage(); 
 				         return false;
 				         
-				         }
-				               
-					
+				        }
+				        resultat="Création effectuée";
 						return true;
 					}
 					//se fait après l'opération, impossible de modifier des valeurs
