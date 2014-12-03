@@ -35,11 +35,11 @@ public class CreerTache extends ActionBarActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_creer_tache);
 		
-		titre=(EditText) findViewById(R.id.titre1);
-		description=(EditText) findViewById(R.id.description2);
-		date_tache=(EditText) findViewById(R.id.date3);
-		num=(EditText) findViewById(R.id.ordre4);
-		depanneur=(EditText) findViewById(R.id.depanneur5);
+		titre=(EditText) findViewById(R.id.titreedit);
+		description=(EditText) findViewById(R.id.descriptionedit);
+		date_tache=(EditText) findViewById(R.id.dateedit);
+		num=(EditText) findViewById(R.id.ordreedit);
+		depanneur=(EditText) findViewById(R.id.depanneuredit);
 		error=(TextView) findViewById(R.id.erreur);
 		suivant=(Button)findViewById(R.id.ajouter);
 		
