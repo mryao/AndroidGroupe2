@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.EditText;
 
 public class MainActivity extends ActionBarActivity {
@@ -22,7 +23,7 @@ public class MainActivity extends ActionBarActivity {
 	private Button suivant =null;
 	private EditText ed1;
 	private EditText ed2;
-	private EditText error;
+	private TextView error;
 	private String sendid;
 	public static final String sendid2 = "";	
 
@@ -33,7 +34,7 @@ public class MainActivity extends ActionBarActivity {
 		
 		ed1=(EditText) findViewById(R.id.login1);
 		ed2=(EditText) findViewById(R.id.password2);
-		error=(EditText) findViewById(R.id.erreur);
+		error=(TextView) findViewById(R.id.erreur);
 		suivant=(Button)findViewById(R.id.connexion);
 		
 		suivant.setOnClickListener(

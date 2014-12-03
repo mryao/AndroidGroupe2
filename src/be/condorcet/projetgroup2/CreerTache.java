@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class CreerTache extends ActionBarActivity {
 
@@ -23,7 +24,7 @@ public class CreerTache extends ActionBarActivity {
 	private EditText date_tache;
 	private EditText num;
 	private EditText depanneur;
-	private EditText error;
+	private TextView error;
 	private Button suivant;
 	private String recId;
 	private int id;
@@ -39,7 +40,7 @@ public class CreerTache extends ActionBarActivity {
 		date_tache=(EditText) findViewById(R.id.date3);
 		num=(EditText) findViewById(R.id.ordre4);
 		depanneur=(EditText) findViewById(R.id.depanneur5);
-		error=(EditText) findViewById(R.id.erreur);
+		error=(TextView) findViewById(R.id.erreur);
 		suivant=(Button)findViewById(R.id.ajouter);
 		
 		Intent i=getIntent();
@@ -123,16 +124,14 @@ public class CreerTache extends ActionBarActivity {
 					    					   					    
 				        try{
 				        	
-				        	TacheDB tc=new TacheDB(vtitre,vdesc,vdate,vnum,vdepanneur,id);				           	       
-				          		           
+				        	TacheDB tc=new TacheDB(vtitre,vdesc,vdate,vnum,vdepanneur,id);         	       
 				        }
 				        catch(Exception e){		             
 				         resultat="erreur" +e.getMessage(); 
 				         return false;
 				         
-				         }
-				               
-					
+				        }
+				        resultat="Création effectuée";
 						return true;
 					}
 					//se fait après l'opération, impossible de modifier des valeurs
