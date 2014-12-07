@@ -1,54 +1,58 @@
 package be.condorcet.projetgroup2;
 
 import java.sql.Connection;
-import classdb.UserDB;
+
+import be.condorcet.projetgroup2.CreerTache.MyAccesDB;
 import Connexion.DBConnection;
-import android.support.v7.app.ActionBarActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.EditText;
+import android.widget.TextView;
+import classdb.UserDB;
 
 public class MainActivity extends ActionBarActivity {
 	
 	private Connection con=null; 
-	private Button suivant =null;
+	private Button connexion =null;
 	private EditText ed1;
 	private EditText ed2;
 	private TextView error;
 	private String sendid;
-	public static final String sendid2 = "";	
+	public static final String sendid2 = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+				
 		ed1=(EditText) findViewById(R.id.login1);
 		ed2=(EditText) findViewById(R.id.password2);
 		error=(TextView) findViewById(R.id.erreur);
-		suivant=(Button)findViewById(R.id.connexion);
+		connexion=(Button)findViewById(R.id.connexion);
 		
-		suivant.setOnClickListener(
+		connexion.setOnClickListener(
 				new OnClickListener(){
 					
 					public void onClick(View v){
+						MyAccesDB adb = new MyAccesDB(MainActivity.this);
+						adb.execute();
 						
 						Intent i = new Intent(MainActivity.this,CreerTache.class);
 						i.putExtra(sendid2,sendid);
 						startActivity(i);
 					
-					}//fin méthode onClick
-				  }//fin classe onClickLister
-				);//fin paramétrage méthode setOnClickListener
+					}
+				  }
+				);
 		
 	}
 
@@ -124,19 +128,20 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 				  
 					   UserDB.setConnection(con);
 				   }
-				    String ulogin=ed1.getText().toString();	
-				    String upassword=ed2.getText().toString();
-			        try{			        	
-			        	UserDB us=new UserDB(ulogin,upassword);	
+				    
+			        try{	
+			        	String ulogin=ed1.getText().toString();	
+					    String upassword=ed2.getText().toString();
+					    UserDB us=new UserDB(ulogin,upassword);	
+			        	Log.d("test",""+ resultatId);
 			            us.logon(ulogin, upassword);
-			            resultatId=us.getIduser();			       
+			            resultatId=us.getIduser();
+			            Log.d("test",""+ resultatId);
 			        }
 			        catch(Exception e){		             
 			         resultat="erreur" +e.getMessage(); 
-			         return false;
-			         
-			         }
-			              
+			         return false;			         
+			        }			              
 				
 					return true;
 				}

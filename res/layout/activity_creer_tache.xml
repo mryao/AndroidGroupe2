@@ -148,7 +148,8 @@
 	        android:layout_height="wrap_content"
 	        android:layout_alignBaseline="@+id/ajouter"
 	        android:layout_alignBottom="@+id/ajouter"
-	        android:layout_toRightOf="@+id/ordre4"
+	        android:layout_marginLeft="28dp"
+	        android:layout_toRightOf="@+id/ajouter"
 	        android:text="@string/reset" />
 	    
 	</RelativeLayout>

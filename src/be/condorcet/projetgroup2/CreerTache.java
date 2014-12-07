@@ -2,6 +2,7 @@ package be.condorcet.projetgroup2;
 
 import java.sql.Connection;
 
+import be.condorcet.projetgroup2.MainActivity.MyAccesDB;
 import classdb.TacheDB;
 import classdb.UserDB;
 import Connexion.DBConnection;
@@ -13,9 +14,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.util.Log;
 
 public class CreerTache extends ActionBarActivity {
 
@@ -25,7 +29,8 @@ public class CreerTache extends ActionBarActivity {
 	private EditText num;
 	private EditText depanneur;
 	private TextView error;
-	private Button suivant;
+	private Button creer;
+	private Button reset;
 	private String recId;
 	private int id;
 	
@@ -34,19 +39,44 @@ public class CreerTache extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_creer_tache);
-		
+				
 		titre=(EditText) findViewById(R.id.titreedit);
 		description=(EditText) findViewById(R.id.descriptionedit);
 		date_tache=(EditText) findViewById(R.id.dateedit);
 		num=(EditText) findViewById(R.id.ordreedit);
 		depanneur=(EditText) findViewById(R.id.depanneuredit);
 		error=(TextView) findViewById(R.id.erreur);
-		suivant=(Button)findViewById(R.id.ajouter);
+		creer=(Button)findViewById(R.id.ajouter);
+		reset=(Button)findViewById(R.id.reset);
 		
 		Intent i=getIntent();
 		recId = i.getParcelableExtra(MainActivity.sendid2);
 		id = Integer.parseInt(recId);
-	    UserDB us = new UserDB(id);
+		//id = 3;
+	    
+	    creer.setOnClickListener(
+				new OnClickListener(){					
+					public void onClick(View v){
+						MyAccesDB adb = new MyAccesDB(CreerTache.this);
+						adb.execute();					
+					
+					}
+				  }
+				);
+	    
+	    reset.setOnClickListener(
+				new OnClickListener(){					
+					public void onClick(View v){
+						titre.setText("");
+						description.setText("");
+						date_tache.setText("");
+						num.setText("");
+						depanneur.setText("");
+											
+					}
+				  }
+				);
+	    
 	}
 
 	@Override
@@ -115,16 +145,20 @@ public class CreerTache extends ActionBarActivity {
 						    }
 					  
 						   TacheDB.setConnection(con);
+						   UserDB.setConnection(con);
 					   }
-					    String vtitre=titre.getText().toString();
-					    String vdesc=description.getText().toString();
-					    String vdate=date_tache.getText().toString();
-					    int vnum = Integer.parseInt(num.getText().toString());
-					    int vdepanneur = Integer.parseInt(depanneur.getText().toString());
-					    					   					    
+					    					    					   					    
 				        try{
-				        	
-				        	TacheDB tc=new TacheDB(vtitre,vdesc,vdate,vnum,vdepanneur,id);         	       
+				        	UserDB us = new UserDB(id);
+				    	    Log.e("test id user",""+us.getIduser());
+				        	String vtitre=titre.getText().toString();
+						    String vdesc=description.getText().toString();
+						    String vdate=date_tache.getText().toString();
+						    int vnum = Integer.parseInt(num.getText().toString());
+						    int vdepanneur = Integer.parseInt(depanneur.getText().toString());
+						    
+				        	TacheDB tc=new TacheDB(vtitre,vdesc,vdate,vnum,vdepanneur,us.getIduser());
+				        	tc.create();
 				        }
 				        catch(Exception e){		             
 				         resultat="erreur" +e.getMessage(); 
