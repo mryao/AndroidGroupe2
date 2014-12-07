@@ -42,20 +42,6 @@ public class MainActivity extends ActionBarActivity {
 		MyAccesDB adb = new MyAccesDB(MainActivity.this);
 		adb.execute();
 		
-		connexion.setOnClickListener(
-				new OnClickListener(){
-					
-					public void onClick(View v){
-						
-						
-						Intent i = new Intent(MainActivity.this,CreerTache.class);
-						i.putExtra("envoiId",sendid);
-						startActivity(i);
-					
-					}
-				  }
-				);
-		
 	}
 
 	@Override
@@ -129,6 +115,7 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 					    }
 				  
 					   UserDB.setConnection(con);
+					   Log.d("connexionDoIN","connexion OK");
 				   }
 				    
 			        try{	
@@ -141,7 +128,8 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 			            Log.d("test",""+ resultatId);
 			        }
 			        catch(Exception e){		             
-			         resultat="erreur" +e.getMessage(); 
+			         resultat="erreur" +e.getMessage();
+			         Log.d("Log",""+resultat);
 			         return false;			         
 			        }			              
 				
@@ -153,6 +141,18 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 					  pgd.dismiss();
 					  error.setText(resultat);
 					  sendid = Integer.toString(resultatId);
+					  
+					  connexion.setOnClickListener(
+								new OnClickListener(){									
+									public void onClick(View v){									
+										
+										Intent i = new Intent(MainActivity.this,CreerTache.class);
+										i.putExtra("envoiId",sendid);
+										startActivity(i);
+										finish();									
+									}
+								  }
+								);
 								
 				}
 		

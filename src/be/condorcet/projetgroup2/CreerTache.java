@@ -60,29 +60,7 @@ public class CreerTache extends ActionBarActivity {
 		adb.execute();
 		
 		//id = 3;
-	    
-	    creer.setOnClickListener(
-				new OnClickListener(){					
-					public void onClick(View v){
-											
-					
-					}
-				  }
-				);
-	    
-	    reset.setOnClickListener(
-				new OnClickListener(){					
-					public void onClick(View v){
-						titre.setText("");
-						description.setText("");
-						date_tache.setText("");
-						num.setText("");
-						depanneur.setText("");
-											
-					}
-				  }
-				);
-	    
+	    	    
 	}
 
 	@Override
@@ -179,6 +157,26 @@ public class CreerTache extends ActionBarActivity {
 						 super.onPostExecute(result);
 						  pgd.dismiss();
 						  error.setText(resultat);
+						  
+						  creer.setOnClickListener(
+									new OnClickListener(){					
+										public void onClick(View v){																
+										
+										}
+									  }
+									);
+						    
+						  reset.setOnClickListener(
+									new OnClickListener(){					
+										public void onClick(View v){
+											titre.setText("");
+											description.setText("");
+											date_tache.setText("");
+											num.setText("");
+											depanneur.setText("");																
+										}
+									  }
+									);
 									
 					}
 			
