@@ -27,7 +27,7 @@ public class MainActivity extends ActionBarActivity {
 	private EditText ed2;
 	private TextView error;
 	private String sendid;
-	public static final String sendid2 = "";
+	//public static final String sendid2 = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,15 +39,17 @@ public class MainActivity extends ActionBarActivity {
 		error=(TextView) findViewById(R.id.erreur);
 		connexion=(Button)findViewById(R.id.connexion);
 		
+		MyAccesDB adb = new MyAccesDB(MainActivity.this);
+		adb.execute();
+		
 		connexion.setOnClickListener(
 				new OnClickListener(){
 					
 					public void onClick(View v){
-						MyAccesDB adb = new MyAccesDB(MainActivity.this);
-						adb.execute();
+						
 						
 						Intent i = new Intent(MainActivity.this,CreerTache.class);
-						i.putExtra(sendid2,sendid);
+						i.putExtra("envoiId",sendid);
 						startActivity(i);
 					
 					}

@@ -49,16 +49,22 @@ public class CreerTache extends ActionBarActivity {
 		creer=(Button)findViewById(R.id.ajouter);
 		reset=(Button)findViewById(R.id.reset);
 		
+		
+		
 		Intent i=getIntent();
-		recId = i.getParcelableExtra(MainActivity.sendid2);
-		id = Integer.parseInt(recId);
+		//recId = i.getParcelableExtra(MainActivity.sendid2);
+		//id = Integer.parseInt(recId);
+		id = Integer.parseInt(i.getStringExtra("sendid2"));
+		
+		MyAccesDB adb = new MyAccesDB(CreerTache.this);
+		adb.execute();
+		
 		//id = 3;
 	    
 	    creer.setOnClickListener(
 				new OnClickListener(){					
 					public void onClick(View v){
-						MyAccesDB adb = new MyAccesDB(CreerTache.this);
-						adb.execute();					
+											
 					
 					}
 				  }
