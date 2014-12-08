@@ -50,11 +50,17 @@ public class CreerTache extends ActionBarActivity {
 		reset=(Button)findViewById(R.id.reset);
 		
 		
+		try{
+			Intent i=getIntent();
+			
+			recId = i.getParcelableExtra(MainActivity.sendid2);
+			Log.d("Intend",""+recId);
+			id = Integer.parseInt(recId);
+			//id = Integer.parseInt(i.getStringExtra("sendid2"));
+		}catch(Exception ex){
+			Log.d("Test Intend",""+ex.getMessage());
+		}
 		
-		Intent i=getIntent();
-		recId = i.getParcelableExtra(MainActivity.sendid2);
-		id = Integer.parseInt(recId);
-		//id = Integer.parseInt(i.getStringExtra("sendid2"));
 		
 		MyAccesDB adb = new MyAccesDB(CreerTache.this);
 		adb.execute();

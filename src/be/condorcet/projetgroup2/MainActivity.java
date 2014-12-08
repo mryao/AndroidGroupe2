@@ -39,17 +39,15 @@ public class MainActivity extends ActionBarActivity {
 		error=(TextView) findViewById(R.id.erreur);
 		connexion=(Button)findViewById(R.id.connexion);
 		
-		MyAccesDB adb = new MyAccesDB(MainActivity.this);
-		adb.execute();
+		
 		
 		connexion.setOnClickListener(
 				new OnClickListener(){									
 					public void onClick(View v){									
+						MyAccesDB adb = new MyAccesDB(MainActivity.this);
+						adb.execute();
 						
-						Intent i = new Intent(MainActivity.this,CreerTache.class);
-						i.putExtra(sendid2,sendid);
-						startActivity(i);
-						finish();									
+														
 					}
 				  }
 				);
@@ -152,7 +150,11 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 					 super.onPostExecute(result);
 					  pgd.dismiss();
 					  error.setText(resultat);
-					  sendid = Integer.toString(resultatId);					  
+					  //sendid = Integer.toString(resultatId);
+					  Intent i = new Intent(MainActivity.this,CreerTache.class);
+						i.putExtra(sendid2,""+resultatId);
+						startActivity(i);
+						finish();	
 					  								
 				}
 		
