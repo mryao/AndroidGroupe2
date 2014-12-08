@@ -53,7 +53,7 @@
         android:layout_below="@+id/login1"
         android:layout_marginTop="68dp"
         android:ems="10"
-        android:inputType="text" />
+        android:inputType="textPassword" />
 
     <TextView
         android:id="@+id/loginLB"

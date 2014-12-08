@@ -89,7 +89,7 @@ public class MainActivity extends ActionBarActivity {
 	
 class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 	    private String resultat;
-	    private int resultatId;
+	    private int resultatId = 0;
 	    private ProgressDialog pgd=null;
 	    
 							
@@ -108,7 +108,7 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 				protected void onPreExecute(){
 					 super.onPreExecute();
 			         pgd=new ProgressDialog(MainActivity.this);
-					 pgd.setMessage("chargement en cours");
+					 pgd.setMessage("connexion à la base de données en cours");
 					 pgd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 		     		 pgd.show();
 												
@@ -129,49 +129,38 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 				   }
 				    
 			        try{	
-			        	if(ed1.getText().toString().equals("")){
+			        				        			
+			        	String ulogin=ed1.getText().toString();	
+					    String upassword=ed2.getText().toString();
+					    UserDB us=new UserDB(ulogin,upassword);	
+					    Log.d("test",""+ resultatId);
+					    us.logon(ulogin, upassword);
+					    resultatId=us.getIduser();
+					    Log.d("test",""+ resultatId);			        		
 			        		
-			        		if(ed2.getText().toString().equals("")){
-			        			
-			        			String ulogin=ed1.getText().toString();	
-							    String upassword=ed2.getText().toString();
-							    UserDB us=new UserDB(ulogin,upassword);	
-					        	Log.d("test",""+ resultatId);
-					            us.logon(ulogin, upassword);
-					            resultatId=us.getIduser();
-					            Log.d("test",""+ resultatId);
-			        		}else{
-			        			resultat="Mot de passe incorrect";
-			        			return false;
-			        		}
-			        		
-			        	}
-			        	else{
-			        		resultat="Login incorrect";
-			        		return false;
-			        	}
-			        		
-			        	
 			        }
 			        catch(Exception e){		             
-			         resultat="erreur" +e.getMessage();
+			         resultat="Erreur :" +e.getMessage();
 			         Log.d("Log",""+resultat);
 			         return false;			         
 			        }			              
 				
 					return true;
 				}
-				//se fait après l'opération, impossible de modifier des valeurs
+				//se fait après l'opération, impossible de modifier des valeures
 				protected void onPostExecute(Boolean result){
 					 super.onPostExecute(result);
 					  pgd.dismiss();
 					  error.setText(resultat);
 					  //sendid = Integer.toString(resultatId);
-					  Intent i = new Intent(MainActivity.this,CreerTache.class);
-						i.putExtra("sendid2",""+resultatId);
-						Log.d("Main",""+resultatId);
-						startActivity(i);
-						finish();	
+					  if(resultatId != 0){
+						  Intent i = new Intent(MainActivity.this,CreerTache.class);
+							i.putExtra("sendid2",""+resultatId);
+							Log.d("Main",""+resultatId);
+							startActivity(i);
+							finish();
+					  }
+					  	
 					  								
 				}
 		

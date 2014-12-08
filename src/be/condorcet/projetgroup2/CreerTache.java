@@ -137,7 +137,7 @@ public class CreerTache extends ActionBarActivity {
 					protected void onPreExecute(){
 						 super.onPreExecute();
 				         pgd=new ProgressDialog(CreerTache.this);
-						 pgd.setMessage("chargement en cours");
+						 pgd.setMessage("création de la tâche en cours");
 						 pgd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 			     		 pgd.show();
 													
@@ -170,7 +170,7 @@ public class CreerTache extends ActionBarActivity {
 				        	tc.create();
 				        }
 				        catch(Exception e){		             
-				         resultat="erreur" +e.getMessage(); 
+				         resultat="Erreur :" +e.getMessage(); 
 				         return false;
 				         
 				        }
