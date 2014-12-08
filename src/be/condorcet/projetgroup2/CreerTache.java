@@ -69,6 +69,7 @@ public class CreerTache extends ActionBarActivity {
 					public void onClick(View v){																
 						MyAccesDB adb = new MyAccesDB(CreerTache.this);
 						adb.execute();
+						
 					}
 				  }
 				);
@@ -174,6 +175,11 @@ public class CreerTache extends ActionBarActivity {
 				         
 				        }
 				        resultat="Création effectuée";
+				        titre.setText("");
+						description.setText("");
+						date_tache.setText("");
+						num.setText("");
+						depanneur.setText("");
 						return true;
 					}
 					//se fait après l'opération, impossible de modifier des valeurs

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ProjetGroup2</string>
+    <string name="app_name">ProjetGroupe2</string>
     <string name="hello_world">Bienvenue!</string>
     <string name="action_settings">Settings</string>
     <string name="ok">OK</string>
@@ -14,5 +14,7 @@
     <string name="ajouter">Ajouter</string>
     <string name="reset">Vider les champs</string>
     <string name="connexion">Connexion</string>
+    <string name="loginLB">Login :</string>
+    <string name="PasswordLB">Mot de passe :</string>
 
 </resources>

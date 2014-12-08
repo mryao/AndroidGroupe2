@@ -129,13 +129,29 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 				   }
 				    
 			        try{	
-			        	String ulogin=ed1.getText().toString();	
-					    String upassword=ed2.getText().toString();
-					    UserDB us=new UserDB(ulogin,upassword);	
-			        	Log.d("test",""+ resultatId);
-			            us.logon(ulogin, upassword);
-			            resultatId=us.getIduser();
-			            Log.d("test",""+ resultatId);
+			        	if(ed1.getText().toString().equals("")){
+			        		
+			        		if(ed2.getText().toString().equals("")){
+			        			
+			        			String ulogin=ed1.getText().toString();	
+							    String upassword=ed2.getText().toString();
+							    UserDB us=new UserDB(ulogin,upassword);	
+					        	Log.d("test",""+ resultatId);
+					            us.logon(ulogin, upassword);
+					            resultatId=us.getIduser();
+					            Log.d("test",""+ resultatId);
+			        		}else{
+			        			resultat="Mot de passe incorrect";
+			        			return false;
+			        		}
+			        		
+			        	}
+			        	else{
+			        		resultat="Login incorrect";
+			        		return false;
+			        	}
+			        		
+			        	
 			        }
 			        catch(Exception e){		             
 			         resultat="erreur" +e.getMessage();

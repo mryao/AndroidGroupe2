@@ -7,15 +7,6 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="be.condorcet.projetgroup2.MainActivity" >
-
-    <TextView
-        android:id="@+id/bienvenue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:text="@string/hello_world" />
 	
     <TextView
 	        android:id="@+id/erreur"
@@ -26,51 +17,61 @@
 	        android:layout_marginTop="15dp"
 	        android:text="" />
 
-    <Button
-        android:id="@+id/connexion"
+    <EditText
+        android:id="@+id/password2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/erreur"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:text="@string/connexion" />
+        android:layout_alignBaseline="@+id/PasswordLB"
+        android:layout_alignBottom="@+id/PasswordLB"
+        android:layout_alignLeft="@+id/connexion"
+        android:ems="10"
+        android:inputType="text" />
 
     <EditText
         android:id="@+id/login1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/bienvenue"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="79dp"
+        android:layout_alignLeft="@+id/password2"
+        android:layout_alignTop="@+id/loginLB"
         android:ems="10"
-        android:inputType="text" />
-    
-    <EditText
-        android:id="@+id/password2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/login1"
-        android:layout_below="@+id/login1"
-        android:layout_marginTop="68dp"
-        android:ems="10"
-        android:inputType="text" />
+        android:inputType="text" >
 
-    <TextView
-        android:id="@+id/loginLB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/login1"
-        android:layout_below="@+id/bienvenue"
-        android:layout_marginTop="43dp"
-        android:text="@string/loginLB" />
+        <requestFocus />
+    </EditText>
 
     <TextView
         android:id="@+id/PasswordLB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/password2"
         android:layout_below="@+id/login1"
-        android:layout_marginTop="33dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginTop="34dp"
+        android:layout_toLeftOf="@+id/password2"
         android:text="@string/PasswordLB" />
+
+    <TextView
+        android:id="@+id/bienvenue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/hello_world" />
+
+    <Button
+        android:id="@+id/connexion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/erreur"
+        android:layout_centerHorizontal="true"
+        android:text="@string/connexion" />
+
+    <TextView
+        android:id="@+id/loginLB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/PasswordLB"
+        android:layout_below="@+id/bienvenue"
+        android:layout_marginTop="20dp"
+        android:text="@string/loginLB" />
 
 </RelativeLayout>
