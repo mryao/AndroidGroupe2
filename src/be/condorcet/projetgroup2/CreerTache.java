@@ -53,19 +53,37 @@ public class CreerTache extends ActionBarActivity {
 		try{
 			Intent i=getIntent();
 			
-			recId = i.getParcelableExtra(MainActivity.sendid2);
-			Log.d("Intend",""+recId);
-			id = Integer.parseInt(recId);
-			//id = Integer.parseInt(i.getStringExtra("sendid2"));
+			//recId = i.getParcelableExtra(MainActivity.sendid2);
+			//Log.d("Intend",""+recId);
+			//id = Integer.parseInt(recId);
+			id = Integer.parseInt(i.getStringExtra("sendid2"));
+			Log.d("robin",""+id);
 		}catch(Exception ex){
 			Log.d("Test Intend",""+ex.getMessage());
 		}
+			
 		
-		
-		MyAccesDB adb = new MyAccesDB(CreerTache.this);
-		adb.execute();
-		
-		id = 3;
+		//id = 3;
+		creer.setOnClickListener(
+				new OnClickListener(){					
+					public void onClick(View v){																
+						MyAccesDB adb = new MyAccesDB(CreerTache.this);
+						adb.execute();
+					}
+				  }
+				);
+	    
+	  reset.setOnClickListener(
+				new OnClickListener(){					
+					public void onClick(View v){
+						titre.setText("");
+						description.setText("");
+						date_tache.setText("");
+						num.setText("");
+						depanneur.setText("");																
+					}
+				  }
+				);
 	    	    
 	}
 
@@ -163,26 +181,7 @@ public class CreerTache extends ActionBarActivity {
 						 super.onPostExecute(result);
 						  pgd.dismiss();
 						  error.setText(resultat);
-						  
-						  creer.setOnClickListener(
-									new OnClickListener(){					
-										public void onClick(View v){																
-										
-										}
-									  }
-									);
-						    
-						  reset.setOnClickListener(
-									new OnClickListener(){					
-										public void onClick(View v){
-											titre.setText("");
-											description.setText("");
-											date_tache.setText("");
-											num.setText("");
-											depanneur.setText("");																
-										}
-									  }
-									);
+						  		  
 									
 					}
 			

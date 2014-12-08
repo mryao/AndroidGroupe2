@@ -152,7 +152,8 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 					  error.setText(resultat);
 					  //sendid = Integer.toString(resultatId);
 					  Intent i = new Intent(MainActivity.this,CreerTache.class);
-						i.putExtra(sendid2,""+resultatId);
+						i.putExtra("sendid2",""+resultatId);
+						Log.d("Main",""+resultatId);
 						startActivity(i);
 						finish();	
 					  								
