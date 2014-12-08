@@ -52,14 +52,14 @@ public class CreerTache extends ActionBarActivity {
 		
 		
 		Intent i=getIntent();
-		//recId = i.getParcelableExtra(MainActivity.sendid2);
-		//id = Integer.parseInt(recId);
-		id = Integer.parseInt(i.getStringExtra("sendid2"));
+		recId = i.getParcelableExtra(MainActivity.sendid2);
+		id = Integer.parseInt(recId);
+		//id = Integer.parseInt(i.getStringExtra("sendid2"));
 		
 		MyAccesDB adb = new MyAccesDB(CreerTache.this);
 		adb.execute();
 		
-		//id = 3;
+		id = 3;
 	    	    
 	}
 

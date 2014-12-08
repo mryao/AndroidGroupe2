@@ -27,7 +27,7 @@ public class MainActivity extends ActionBarActivity {
 	private EditText ed2;
 	private TextView error;
 	private String sendid;
-	//public static final String sendid2 = "";
+	public static final String sendid2 = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,18 @@ public class MainActivity extends ActionBarActivity {
 		
 		MyAccesDB adb = new MyAccesDB(MainActivity.this);
 		adb.execute();
+		
+		connexion.setOnClickListener(
+				new OnClickListener(){									
+					public void onClick(View v){									
+						
+						Intent i = new Intent(MainActivity.this,CreerTache.class);
+						i.putExtra(sendid2,sendid);
+						startActivity(i);
+						finish();									
+					}
+				  }
+				);
 		
 	}
 
@@ -140,20 +152,8 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 					 super.onPostExecute(result);
 					  pgd.dismiss();
 					  error.setText(resultat);
-					  sendid = Integer.toString(resultatId);
-					  
-					  connexion.setOnClickListener(
-								new OnClickListener(){									
-									public void onClick(View v){									
-										
-										Intent i = new Intent(MainActivity.this,CreerTache.class);
-										i.putExtra("envoiId",sendid);
-										startActivity(i);
-										finish();									
-									}
-								  }
-								);
-								
+					  sendid = Integer.toString(resultatId);					  
+					  								
 				}
 		
 			}
