@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ProjetGroupe2</string>
+    <string name="hello_world">Welcome!</string>
+    <string name="action_settings">Settings</string>
+    <string name="ok">OK</string>
+    <string name="title_activity_creer_tache">Create task</string>
+    <string name="titre">Title : </string>
+    <string name="description">Description : </string>
+    <string name="date">Date : </string>
+    <string name="numero_ordre">Order : </string>
+    <string name="depanneur">Serviceman : </string>
+    <string name="ajouter">Add</string>
+    <string name="reset">Empty fields</string>
+    <string name="connexion">Connection</string>
+    <string name="loginLB">Login :</string>
+    <string name="PasswordLB">Password :</string>
+
+</resources>
