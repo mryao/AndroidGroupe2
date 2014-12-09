@@ -147,7 +147,7 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 				
 					return true;
 				}
-				//se fait après l'opération, impossible de modifier des valeures
+				//se fait après l'opération, impossible de modifier des valeurs
 				protected void onPostExecute(Boolean result){
 					 super.onPostExecute(result);
 					  pgd.dismiss();
