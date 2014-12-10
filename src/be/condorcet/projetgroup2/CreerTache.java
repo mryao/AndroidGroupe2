@@ -73,8 +73,7 @@ public class CreerTache extends ActionBarActivity {
 						description.setText("");
 						date_tache.setText("");
 						num.setText("");
-						depanneur.setText("");
-						
+						depanneur.setText("");						
 					}
 				  }
 				);
@@ -165,11 +164,20 @@ public class CreerTache extends ActionBarActivity {
 				        try{
 				        	UserDB us = new UserDB(id);
 				    	    Log.e("test id user",""+us.getIduser());
+				    	    Log.e("test titre",""+titre.getText().toString());
+				    	    Log.e("test desc",""+description.getText().toString());
 				        	String vtitre=titre.getText().toString();
 						    String vdesc=description.getText().toString();
 						    String vdate=date_tache.getText().toString();
 						    int vnum = Integer.parseInt(num.getText().toString());
 						    int vdepanneur = Integer.parseInt(depanneur.getText().toString());
+						    
+						    //vtitre="test";
+						    //vdesc="tester";
+						    
+						    Log.e("test titre",""+vtitre);
+						    Log.e("test description",""+vdesc);
+						    Log.e("test date",vdate);
 						    
 				        	TacheDB tc=new TacheDB(vtitre,vdesc,vdate,vnum,vdepanneur,us.getIduser());
 				        	tc.create();
@@ -179,6 +187,7 @@ public class CreerTache extends ActionBarActivity {
 				         return false;
 				         
 				        }
+				        
 				        resultat="Création effectuée";
 				        
 						return true;
