@@ -16,5 +16,6 @@
     <string name="connexion">Connexion</string>
     <string name="loginLB">Login :</string>
     <string name="PasswordLB">Mot de passe :</string>
+    <string name="title_activity_afficher_tache">AfficherTache</string>
 
 </resources>
