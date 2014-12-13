@@ -53,9 +53,6 @@ public class CreerTache extends ActionBarActivity {
 		try{
 			Intent i=getIntent();
 			
-			//recId = i.getParcelableExtra(MainActivity.sendid2);
-			//Log.d("Intend",""+recId);
-			//id = Integer.parseInt(recId);
 			id = Integer.parseInt(i.getStringExtra("sendid2"));
 			Log.d("robin",""+id);
 		}catch(Exception ex){
