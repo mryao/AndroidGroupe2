@@ -110,19 +110,14 @@
 	        android:layout_below="@+id/ordreedit"
 	        android:layout_marginTop="15dp"
 	        android:text="@string/depanneur" />
-	
-	    <EditText
+	    
+	    <Spinner
 	        android:id="@+id/depanneuredit"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_alignLeft="@+id/depanneur5"
 	        android:layout_below="@+id/depanneur5"
-	        android:layout_marginTop="15dp"
-	        android:inputType="number"
-	        android:ems="10" >
-	
-	        <requestFocus />
-	    </EditText>
+	        android:layout_marginTop="15dp" />
 	    
 	    <TextView
 	        android:id="@+id/erreur"
@@ -151,6 +146,8 @@
 	        android:layout_marginLeft="28dp"
 	        android:layout_toRightOf="@+id/ajouter"
 	        android:text="@string/reset" />
+
+	    
 	    
 	</RelativeLayout>
 </ScrollView>
