@@ -32,6 +32,14 @@
             android:name=".AfficherTache"
             android:label="@string/title_activity_afficher_tache" >
         </activity>
+        <activity
+            android:name=".MenuDepanneur"
+            android:label="@string/title_activity_menu_depanneur" >
+        </activity>
+        <activity
+            android:name=".MenuAdmin"
+            android:label="@string/title_activity_menu_admin" >
+        </activity>
     </application>
 
 </manifest>
