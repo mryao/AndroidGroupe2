@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ProjetGroupe2</string>
+    <string name="app_name">プロジェクトグループ2</string>
     <string name="hello_world">ようこそ！</string>
     <string name="action_settings">パラメーター</string>
     <string name="ok">確認</string>
