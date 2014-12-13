@@ -27,8 +27,7 @@ public class MainActivity extends ActionBarActivity {
 	private EditText ed2;
 	private TextView error;
 	private String sendid;
-	public static final String sendid2 = "";
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -89,7 +88,7 @@ public class MainActivity extends ActionBarActivity {
 	
 class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 	    private String resultat;
-	    private int resultatId = 0;
+	    private int resultatId = 2;
 	    private ProgressDialog pgd=null;
 	    
 							
@@ -153,12 +152,20 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 					  pgd.dismiss();
 					  error.setText(resultat);
 					  //sendid = Integer.toString(resultatId);
-					  if(resultatId != 0){
-						  Intent i = new Intent(MainActivity.this,CreerTache.class);
-							i.putExtra("sendid2",""+resultatId);
-							Log.d("Main",""+resultatId);
-							startActivity(i);
-							finish();
+					  if(resultatId != 2){
+						  if(resultatId != 0){
+							  Intent i = new Intent(MainActivity.this,MenuAdmin.class);
+							  i.putExtra("sendid2",""+resultatId);
+							  Log.d("Main",""+resultatId);
+							  startActivity(i);
+							  finish();
+						  }
+						  else{
+							  Intent i = new Intent(MainActivity.this,MenuDepanneur.class);
+							  startActivity(i);//pas de putExtra car id inutile pour un dépanneur 
+							  finish();
+						  }
+						  
 					  }
 					  	
 					  								
