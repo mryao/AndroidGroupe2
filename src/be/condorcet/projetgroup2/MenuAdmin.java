@@ -15,7 +15,6 @@ public class MenuAdmin extends Activity {
 	
 	private int id;
 	private Button creer;
-	private Button affTache;
 	private Button affStaff;
 	private Button deconnexion;
 	
@@ -25,8 +24,7 @@ public class MenuAdmin extends Activity {
 		setContentView(R.layout.activity_menu_admin);
 		
 		
-		affTache=(Button)findViewById(R.id.AfficherTache1);
-		affStaff=(Button)findViewById(R.id.AfficherTacheStaff);
+		affStaff=(Button)findViewById(R.id.AfficherStaff);
 		creer=(Button)findViewById(R.id.CreerTache);
 		deconnexion=(Button)findViewById(R.id.Deconnexion2);
 		
@@ -37,15 +35,6 @@ public class MenuAdmin extends Activity {
 		}catch(Exception ex){
 			Log.d("Test Intend",""+ex.getMessage());
 		}
-		
-		affTache.setOnClickListener(
-				new OnClickListener(){									
-					public void onClick(View v){									
-												
-														
-					}
-				  }
-				);
 		
 		deconnexion.setOnClickListener(
 				new OnClickListener(){									

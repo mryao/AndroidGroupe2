@@ -2,24 +2,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="be.condorcet.projetgroup2.MenuDepanneur" >
+    tools:context="be.condorcet.projetgroup2.MenuAdmin" >
 
     <Button
-        android:id="@+id/AfficherTache1"
+        android:id="@+id/AfficherStaff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:text="@string/AffTache" />
+        android:text="@string/AffStaff" />
+  
+    
+    <Button
+        android:id="@+id/CreerTache"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/AfficherStaff"
+        android:layout_alignRight="@+id/AfficherStaff"
+        android:layout_below="@+id/AfficherStaff"
+        android:layout_marginTop="15dp"
+        android:text="@string/CreerTache" />
 
     <Button
         android:id="@+id/Deconnexion2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/AfficherTache1"
-        android:layout_alignRight="@+id/AfficherTache1"
-        android:layout_below="@+id/AfficherTache1"
+        android:layout_alignLeft="@+id/CreerTache"
+        android:layout_alignRight="@+id/CreerTache"
+        android:layout_below="@+id/CreerTache"
         android:layout_marginTop="15dp"
         android:text="@string/Deco" />
 
