@@ -17,10 +17,10 @@
     <string name="loginLB">Login :</string>
     <string name="PasswordLB">Mot de passe :</string>
     <string name="title_activity_afficher_tache">Afficher Tache</string>
-    <string name="title_activity_menu_depanneur">Menu Depanneur</string>
+    <string name="title_activity_menu_depanneur">Menu Dépanneur</string>
     <string name="AffTache">Afficher tâches</string>
     <string name="Deco">Deconnexion</string>
-    <string name="title_activity_menu_admin">Menu Admin</string>
+    <string name="title_activity_menu_admin">Menu Administrateur</string>
     <string name="AffTacheStaff">Afficher tâches staff</string>
     <string name="CreerTache">Créer tâche</string>
 

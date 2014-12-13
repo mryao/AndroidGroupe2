@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ProjetGroupe2</string>
+    <string name="hello_world">ようこそ！</string>
+    <string name="action_settings">パラメーター</string>
+    <string name="ok">確認</string>
+    <string name="title_activity_creer_tache">タスクの作成</string>
+    <string name="titre">タイトル : </string>
+    <string name="description">説明 : </string>
+    <string name="date">日付 : </string>
+    <string name="numero_ordre">オーダー : </string>
+    <string name="depanneur">トラブルシュータ : </string>
+    <string name="ajouter">アドオン</string>
+    <string name="reset">クリアフィールド</string>
+    <string name="connexion">ログイン</string>
+    <string name="loginLB">ログイン :</string>
+    <string name="PasswordLB">パスワード :</string>
+    <string name="title_activity_afficher_tache">ショースポット</string>
+    <string name="title_activity_menu_depanneur">コンビニメニュー</string>
+    <string name="AffTache">ショータスク</string>
+    <string name="Deco">ログアウト</string>
+    <string name="title_activity_menu_admin">管理者設定メニュー</string>
+    <string name="AffTacheStaff">Afficher tâches staff</string>
+    <string name="CreerTache">Créer tâche</string>
+
+</resources>
