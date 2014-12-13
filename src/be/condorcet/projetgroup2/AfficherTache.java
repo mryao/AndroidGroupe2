@@ -3,6 +3,7 @@ package be.condorcet.projetgroup2;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import be.condorcet.projetgroup2.MainActivity.MyAccesDB;
 import classdb.TacheDB;
 import classdb.UserDB;
 import Connexion.DBConnection;
@@ -34,6 +35,42 @@ public class AfficherTache extends Activity {
 			Log.d("Test Intend",""+ex.getMessage());
 		}
 		
+		MyAccesDB adb = new MyAccesDB(AfficherTache.this);
+		adb.execute();
+		
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+	
+	@Override
+	public void onDestroy(){
+		super.onDestroy();
+		 try {
+	          con.close();
+	          con=null;
+	          Log.d("connexion","deconnexion OK");
+	          }
+	          catch (Exception e) { 
+	          }
+		 Log.d("connexion","deconnexion OK");
+		
 	}
 	
 	 class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
@@ -42,13 +79,13 @@ public class AfficherTache extends Activity {
 		    private ArrayList<TacheDB> liste = new ArrayList();
 		    
 								
-					public MyAccesDB(CreerTache pActivity) {
+					public MyAccesDB(AfficherTache pActivity) {
 					
 						link(pActivity);
 						// TODO Auto-generated constructor stub
 					}
 
-					private void link(CreerTache pActivity) {
+					private void link(AfficherTache pActivity) {
 						// TODO Auto-generated method stub
 					
 						

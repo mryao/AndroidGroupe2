@@ -88,7 +88,8 @@ public class MainActivity extends ActionBarActivity {
 	
 class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 	    private String resultat;
-	    private int resultatId = 2;
+	    private int resultatId = 0;
+	    private int resultatAdmin = 2;
 	    private ProgressDialog pgd=null;
 	    
 							
@@ -134,7 +135,8 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 					    UserDB us=new UserDB(ulogin,upassword);	
 					    Log.d("test",""+ resultatId);
 					    us.logon(ulogin, upassword);
-					    resultatId=us.getIduser();
+					    resultatId = us.getIduser();
+					    resultatAdmin = us.getAdmin();
 					    Log.d("test",""+ resultatId);			        		
 			        		
 			        }
@@ -152,8 +154,8 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 					  pgd.dismiss();
 					  error.setText(resultat);
 					  //sendid = Integer.toString(resultatId);
-					  if(resultatId != 2){
-						  if(resultatId != 0){
+					  if(resultatAdmin != 2){
+						  if(resultatAdmin != 0){
 							  Intent i = new Intent(MainActivity.this,MenuAdmin.class);
 							  i.putExtra("sendid2",""+resultatId);
 							  Log.d("Main",""+resultatId);
@@ -161,7 +163,8 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 							  finish();
 						  }
 						  else{
-							  Intent i = new Intent(MainActivity.this,MenuDepanneur.class);
+							  //Intent i = new Intent(MainActivity.this,MenuDepanneur.class);
+							  Intent i = new Intent(MainActivity.this,AfficherTache.class);
 							  startActivity(i);//pas de putExtra car id inutile pour un dépanneur 
 							  finish();
 						  }
