@@ -18,6 +18,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import classdb.TacheDB;
 import classdb.UserDB;
 
 public class MainActivity extends ActionBarActivity {
@@ -29,6 +30,7 @@ public class MainActivity extends ActionBarActivity {
 	private TextView error;
 	private String sendid;
 	public static final String LISTDEP="listeDep";
+	public static final String LISTTACHE="listeTache";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +96,7 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 	    private int resultatAdmin = 2;
 	    private ProgressDialog pgd=null;
 	    private ArrayList<UserDB>list = new ArrayList();
+	    private ArrayList<TacheDB>list2 = new ArrayList();
 	    
 							
 				public MyAccesDB(MainActivity pActivity) {
@@ -141,7 +144,10 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 					    resultatId = us.getIduser();
 					    resultatAdmin = us.getAdmin();
 					    list = us.all();
-					    Log.d("test",""+ resultatId);			        		
+					    Log.d("test",""+ resultatId);
+					    
+					    TacheDB tache=new TacheDB(resultatId);
+					    list2=tache.tachesDepanneur(resultatId);
 			        		
 			        }
 			        catch(Exception e){		             
@@ -169,6 +175,8 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 						  }
 						  else{
 							  Intent i = new Intent(MainActivity.this,AfficherTache.class);
+							  i.putExtra("sendid2",""+resultatId);
+							  i.putExtra(LISTTACHE,list2);
 							  startActivity(i);//pas de putExtra car id inutile pour un dépanneur 
 							  finish();
 						  }
