@@ -21,6 +21,7 @@ public class AfficherTache extends Activity {
 	private Connection con=null;
 	private int id;
 	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

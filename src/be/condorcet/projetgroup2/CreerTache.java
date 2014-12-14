@@ -1,6 +1,7 @@
 package be.condorcet.projetgroup2;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import be.condorcet.projetgroup2.MainActivity.MyAccesDB;
 import classdb.TacheDB;
@@ -33,6 +34,7 @@ public class CreerTache extends ActionBarActivity {
 	private Button reset;
 	private String recId;
 	private int id;
+	private ArrayList<UserDB>list = new ArrayList();
 	
 	private Connection con=null;
 	@Override
@@ -52,10 +54,12 @@ public class CreerTache extends ActionBarActivity {
 		
 		try{
 			Intent i=getIntent();			
-			id = Integer.parseInt(i.getStringExtra("sendid2"));
-			Log.d("robin",""+id);
+			id = Integer.parseInt(i.getStringExtra("sendid"));
+			Log.d("creer get i",""+id);
+			list = i.getParcelableExtra(MainActivity.LISTDEP);
+			Log.d("creer get i","liste ok");
 		}catch(Exception ex){
-			Log.d("Test Intend",""+ex.getMessage());
+			Log.d("Test Intend creer",""+ex.getMessage());
 		}
 			
 		
@@ -120,7 +124,7 @@ public class CreerTache extends ActionBarActivity {
 	 class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 		    private String resultat;
 		    private ProgressDialog pgd=null;
-		    
+		    		    
 								
 					public MyAccesDB(CreerTache pActivity) {
 					

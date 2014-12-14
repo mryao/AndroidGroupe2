@@ -1,5 +1,8 @@
 package be.condorcet.projetgroup2;
 
+import java.util.ArrayList;
+
+import classdb.UserDB;
 import be.condorcet.projetgroup2.MainActivity.MyAccesDB;
 import android.app.Activity;
 import android.content.Intent;
@@ -17,6 +20,7 @@ public class MenuAdmin extends Activity {
 	private Button creer;
 	private Button affStaff;
 	private Button deconnexion;
+	private ArrayList<UserDB>list = new ArrayList();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +35,11 @@ public class MenuAdmin extends Activity {
 		try{
 			Intent i=getIntent();			
 			id = Integer.parseInt(i.getStringExtra("sendid2"));
-			Log.d("robin",""+id);
+			Log.d("MAdmin get i",""+id);
+			list = i.getParcelableExtra(MainActivity.LISTDEP);
+			Log.d("MAdmin get i","liste ok");
 		}catch(Exception ex){
-			Log.d("Test Intend",""+ex.getMessage());
+			Log.d("Test Intend MAdmin",""+ex.getMessage());
 		}
 		
 		deconnexion.setOnClickListener(
@@ -58,8 +64,8 @@ public class MenuAdmin extends Activity {
 				new OnClickListener(){									
 					public void onClick(View v){									
 						Intent i = new Intent(MenuAdmin.this,CreerTache.class);
-						i.putExtra("sendid2",""+id);
-						Log.d("Main",""+id);
+						i.putExtra("sendid",""+id);
+						Log.d("send id creer",""+id);
 						startActivity(i);
 						finish();						
 														

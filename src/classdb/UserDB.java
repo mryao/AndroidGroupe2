@@ -152,7 +152,7 @@ public class UserDB extends User implements CRUD{
         }
     }
     
-    public static ArrayList<UserDB> all() throws Exception {//arraylist qui retourne tous les dépanneurs (pas les administrateur)
+    public static ArrayList<UserDB> all() throws Exception {//arraylist qui retourne tous les dépanneurs (pas les administrateurs)
         ArrayList<UserDB> all = new ArrayList<UserDB>();
         CallableStatement cstmt=null;
         try {

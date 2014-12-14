@@ -1,6 +1,7 @@
 package be.condorcet.projetgroup2;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import be.condorcet.projetgroup2.CreerTache.MyAccesDB;
 import Connexion.DBConnection;
@@ -27,6 +28,7 @@ public class MainActivity extends ActionBarActivity {
 	private EditText ed2;
 	private TextView error;
 	private String sendid;
+	public static final String LISTDEP="listeDep";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +93,7 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 	    private int resultatId = 0;
 	    private int resultatAdmin = 2;
 	    private ProgressDialog pgd=null;
+	    private ArrayList<UserDB>list = new ArrayList();
 	    
 							
 				public MyAccesDB(MainActivity pActivity) {
@@ -137,6 +140,7 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 					    us.logon(ulogin, upassword);
 					    resultatId = us.getIduser();
 					    resultatAdmin = us.getAdmin();
+					    list = us.all();
 					    Log.d("test",""+ resultatId);			        		
 			        		
 			        }
@@ -158,6 +162,7 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 						  if(resultatAdmin != 0){
 							  Intent i = new Intent(MainActivity.this,MenuAdmin.class);
 							  i.putExtra("sendid2",""+resultatId);
+							  i.putExtra(LISTDEP,list);
 							  Log.d("Main",""+resultatId);
 							  startActivity(i);
 							  finish();
