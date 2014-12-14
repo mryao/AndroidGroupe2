@@ -22,5 +22,6 @@
     <string name="title_activity_menu_admin">Menu Administrateur</string>
     <string name="AffTacheStaff">Afficher tâches staff</string>
     <string name="CreerTache">Créer tâche</string>
+    <string name="Loading">Chargement</string>
 
 </resources>

@@ -146,6 +146,93 @@ public class CreerTache extends ActionBarActivity {
 		
 	}
 	
+	class DBListeDep extends AsyncTask<String,Integer,Boolean> {
+	    private String resultat;
+	    private ProgressDialog pgd=null;
+	    private ArrayList<UserDB> listedep = new ArrayList<UserDB>();
+	    private int posChoix = 0;
+	    
+							
+				public DBListeDep(CreerTache pActivity) {
+				
+					link(pActivity);
+					// TODO Auto-generated constructor stub
+				}
+
+				private void link(CreerTache  pActivity) {
+					// TODO Auto-generated method stub
+				
+					
+				}
+				protected void onPreExecute(){
+					 super.onPreExecute();
+					 
+			         pgd=new ProgressDialog(CreerTache.this);			         			         
+					 pgd.setMessage(getString(R.string.Loading));
+					 pgd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+		     		 pgd.show();
+												
+				}
+								
+				@Override
+				protected Boolean doInBackground(String... arg0) {
+													
+				   if(con==null){
+					   con = new DBConnection().getConnection(); 
+				    	if(con==null) {
+				    		
+				    		resultat=getString(R.string.echecCo);
+				    		return false;
+					    }
+				    	
+					   UserDB.setConnection(con);					   
+				   }			   
+				   				    
+			        try{
+			        	listedep = UserDB.all();
+			           		           
+			        }
+			        catch(Exception e){		
+			        	//Traduction ici
+			        	//Log.d("pass","test 3 : "+password+" erreur"+e.getMessage());
+			         //resultat="erreur" +e.getMessage(); 
+			        	//Traduction ICI
+			        	resultat = getString(R.string.sportNoFound);
+			         
+			         return false;
+			         
+			         }
+			        return true;
+				}
+				/**
+				 * Ici, c'est après l'execution
+				 * on fait disparaitre la progressbar avec dismiss();
+				 * @param result
+				 */
+				protected void onPostExecute(Boolean result){
+					 super.onPostExecute(result);
+					  pgd.dismiss();
+					  if(result){
+						  String[] tabSports = new String[listeSports.size()];
+							
+							for(int i = 0;i<listeSports.size();i++){
+								tabSports[i] = listeSports.get(i).getNomSport();
+							}
+							
+							ArrayAdapter<String> adapter = new ArrayAdapter<String>(InscriptionActivity.this,android.R.layout.simple_spinner_item,tabSports);
+							adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+							
+							listeSport1.setAdapter(adapter);
+							listeSport2.setAdapter(adapter);
+							listeSport3.setAdapter(adapter);
+					  }
+					  else{
+				        	Toast.makeText(InscriptionActivity.this, resultat, Toast.LENGTH_SHORT).show();
+
+					  }		
+				}
+			}
+	
 	 class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 		    private String resultat;
 		    private ProgressDialog pgd=null;
