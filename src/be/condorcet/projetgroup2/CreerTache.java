@@ -76,9 +76,12 @@ public class CreerTache extends ActionBarActivity {
 			
 			//list.add (""+listUser.getNom()+ " "+listUser(n).getPrenom());
 		}
+		
 		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, list);
 		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spindep.setAdapter(dataAdapter);
+		
+		
 		
 		//id = 3;
 		creer.setOnClickListener(

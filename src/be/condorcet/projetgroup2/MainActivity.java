@@ -168,7 +168,6 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 							  finish();
 						  }
 						  else{
-							  //Intent i = new Intent(MainActivity.this,MenuDepanneur.class);
 							  Intent i = new Intent(MainActivity.this,AfficherTache.class);
 							  startActivity(i);//pas de putExtra car id inutile pour un dépanneur 
 							  finish();

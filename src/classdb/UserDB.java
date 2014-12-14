@@ -157,7 +157,7 @@ public class UserDB extends User implements CRUD{
         CallableStatement cstmt=null;
         try {
             boolean trouve=false;
-            String query1="SELECT * FROM users WHERE createur = 0";
+            String query1="SELECT * FROM users";
             PreparedStatement pstm1 = dbConnect.prepareStatement(query1);
             ResultSet rs = pstm1.executeQuery();
             while(rs.next()){
