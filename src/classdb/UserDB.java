@@ -2,12 +2,12 @@
 package classdb;
 
 import java.sql.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.*;
 
-public class UserDB extends User implements CRUD{
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class UserDB extends User implements CRUD, Parcelable{
     protected static Connection dbConnect = null;
 
     public UserDB() {
@@ -212,5 +212,41 @@ public class UserDB extends User implements CRUD{
             catch (Exception e){}
         }
      }
+    
+    @Override
+    public int describeContents() {
+      //On renvoie 0, car notre classe ne contient pas de FileDescriptor
+      return 0;
+    }
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+      // On ajoute les objets dans l'ordre dans lequel on les a déclarés
+      dest.writeInt(iduser);
+      dest.writeString(nom);
+      dest.writeString(prenom);
+      dest.writeString(login);
+      dest.writeString(motdepasse);
+      dest.writeInt(admin);
+    }
+
+    public static final Parcelable.Creator<UserDB> CREATOR = new Parcelable.Creator<UserDB>() {
+      @Override
+      public UserDB createFromParcel(Parcel source) {
+        return new UserDB(source);
+      }
+      @Override
+      public UserDB[] newArray(int size) {
+        return new UserDB[size];
+      }
+    };
+    public UserDB(Parcel in) {	
+    	  iduser = in.readInt();	
+    	  nom = in.readString();
+    	  prenom = in.readString();
+    	  login = in.readString();
+    	  motdepasse=in.readString();
+    	  admin = in.readInt();
+    	}
+    }
 
 }

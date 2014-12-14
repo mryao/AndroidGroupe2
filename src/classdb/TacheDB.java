@@ -2,14 +2,14 @@
 package classdb;
 
 import java.sql.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class TacheDB extends Tache implements CRUD{
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class TacheDB extends Tache implements CRUD, Parcelable{
     protected static Connection dbConnect = null;
 
     public TacheDB() {
@@ -192,6 +192,46 @@ public class TacheDB extends Tache implements CRUD{
         catch(Exception e) {
             throw new Exception(e.getMessage());
         }
+    }
+    
+    @Override
+    public int describeContents() {
+      //On renvoie 0, car notre classe ne contient pas de FileDescriptor
+      return 0;
+    }
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+      // On ajoute les objets dans l'ordre dans lequel on les a déclarés
+      dest.writeInt(idtache);
+      dest.writeString(titre);
+      dest.writeString(description);
+      dest.writeString(etat);
+      dest.writeString(date_tache);
+      dest.writeInt(num_ordre);
+      dest.writeInt(depanneur);
+      dest.writeInt(createur);
+    }
+
+    public static final Parcelable.Creator<TacheDB> CREATOR = new Parcelable.Creator<TacheDB>() {
+      @Override
+      public TacheDB createFromParcel(Parcel source) {
+        return new TacheDB(source);
+      }
+      @Override
+      public TacheDB[] newArray(int size) {
+        return new TacheDB[size];
+      }
+    };
+    public TacheDB(Parcel in) {	
+    	  idtache = in.readInt();	
+    	  titre = in.readString();
+    	  description = in.readString();
+    	  etat = in.readString();
+    	  date_tache = in.readString();
+    	  num_ordre=in.readInt();
+    	  depanneur=in.readInt();
+    	  createur = in.readInt();
+    	}
     }
         
 }

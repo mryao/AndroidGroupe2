@@ -9,6 +9,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -168,7 +169,7 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 						  if(resultatAdmin != 0){
 							  Intent i = new Intent(MainActivity.this,MenuAdmin.class);
 							  i.putExtra("sendid2",""+resultatId);
-							  i.putExtra(LISTDEP,list);
+							  i.putParcelableArrayListExtra(LISTDEP, list);
 							  Log.d("Main",""+resultatId);
 							  startActivity(i);
 							  finish();
@@ -176,7 +177,7 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 						  else{
 							  Intent i = new Intent(MainActivity.this,AfficherTache.class);
 							  i.putExtra("sendid2",""+resultatId);
-							  i.putExtra(LISTTACHE,list2);
+							  i.putParcelableArrayListExtra(LISTTACHE, list2);
 							  startActivity(i);
 							  finish();
 						  }

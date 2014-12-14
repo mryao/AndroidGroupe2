@@ -36,7 +36,7 @@ public class MenuAdmin extends Activity {
 			Intent i=getIntent();			
 			id = Integer.parseInt(i.getStringExtra("sendid2"));
 			Log.d("MAdmin get i",""+id);
-			list = i.getParcelableExtra(MainActivity.LISTDEP);
+			list = i.getParcelableArrayListExtra(MainActivity.LISTDEP);
 			Log.d("MAdmin get i","liste ok");
 		}catch(Exception ex){
 			Log.d("Test Intend MAdmin",""+ex.getMessage());
