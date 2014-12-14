@@ -247,6 +247,6 @@ public class UserDB extends User implements CRUD, Parcelable{
     	  motdepasse=in.readString();
     	  admin = in.readInt();
     	}
-    }
+    
 
 }
