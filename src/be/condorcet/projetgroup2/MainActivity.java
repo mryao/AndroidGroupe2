@@ -177,7 +177,7 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 							  Intent i = new Intent(MainActivity.this,AfficherTache.class);
 							  i.putExtra("sendid2",""+resultatId);
 							  i.putExtra(LISTTACHE,list2);
-							  startActivity(i);//pas de putExtra car id inutile pour un dépanneur 
+							  startActivity(i);
 							  finish();
 						  }
 						  
