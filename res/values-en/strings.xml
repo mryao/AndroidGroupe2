@@ -16,5 +16,6 @@
     <string name="connexion">Connection</string>
     <string name="loginLB">Login :</string>
     <string name="PasswordLB">Password :</string>
+    <string name="Loading">Loading...</string>
 
 </resources>

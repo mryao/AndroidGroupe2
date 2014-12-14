@@ -24,6 +24,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.util.Log;
 
 public class CreerTache extends ActionBarActivity {
@@ -181,7 +182,7 @@ public class CreerTache extends ActionBarActivity {
 					   con = new DBConnection().getConnection(); 
 				    	if(con==null) {
 				    		
-				    		resultat=getString(R.string.echecCo);
+				    		resultat= "echec de la connexion";
 				    		return false;
 					    }
 				    	
@@ -192,42 +193,32 @@ public class CreerTache extends ActionBarActivity {
 			        	listedep = UserDB.all();
 			           		           
 			        }
-			        catch(Exception e){		
-			        	//Traduction ici
-			        	//Log.d("pass","test 3 : "+password+" erreur"+e.getMessage());
-			         //resultat="erreur" +e.getMessage(); 
-			        	//Traduction ICI
-			        	resultat = getString(R.string.sportNoFound);
-			         
-			         return false;
+			        catch(Exception e){				        	
+			        	resultat="Erreur :" +e.getMessage(); 
+				        return false;
 			         
 			         }
 			        return true;
 				}
-				/**
-				 * Ici, c'est après l'execution
-				 * on fait disparaitre la progressbar avec dismiss();
-				 * @param result
-				 */
+				
 				protected void onPostExecute(Boolean result){
 					 super.onPostExecute(result);
 					  pgd.dismiss();
 					  if(result){
-						  String[] tabSports = new String[listeSports.size()];
+						  String[] tabDepanneur = new String[listedep.size()];
 							
-							for(int i = 0;i<listeSports.size();i++){
-								tabSports[i] = listeSports.get(i).getNomSport();
+							for(int i = 0;i<listedep.size();i++){
+								tabDepanneur[i] = ""+listedep.get(i).getNom()+" "+listedep.get(i).getPrenom();
 							}
 							
-							ArrayAdapter<String> adapter = new ArrayAdapter<String>(InscriptionActivity.this,android.R.layout.simple_spinner_item,tabSports);
+							ArrayAdapter<String> adapter = new ArrayAdapter<String>(CreerTache.this,android.R.layout.simple_spinner_item,tabDepanneur);
 							adapter.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
 							
-							listeSport1.setAdapter(adapter);
-							listeSport2.setAdapter(adapter);
-							listeSport3.setAdapter(adapter);
+							spindep.setAdapter(adapter);
+							
 					  }
 					  else{
-				        	Toast.makeText(InscriptionActivity.this, resultat, Toast.LENGTH_SHORT).show();
+				        	Toast.makeText(CreerTache.this, resultat, Toast.LENGTH_SHORT).show();
 
 					  }		
 				}
