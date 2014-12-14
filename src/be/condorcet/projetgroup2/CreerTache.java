@@ -2,6 +2,8 @@ package be.condorcet.projetgroup2;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import be.condorcet.projetgroup2.MainActivity.MyAccesDB;
 import classdb.TacheDB;
@@ -17,8 +19,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.util.Log;
 
@@ -29,12 +33,13 @@ public class CreerTache extends ActionBarActivity {
 	private EditText date_tache;
 	private EditText num;
 	private EditText depanneur;
+	private Spinner spindep;
 	private TextView error;
 	private Button creer;
 	private Button reset;
 	private String recId;
 	private int id;
-	private ArrayList<UserDB>list = new ArrayList();
+	private ArrayList<UserDB>listUser = new ArrayList();
 	
 	private Connection con=null;
 	@Override
@@ -46,7 +51,8 @@ public class CreerTache extends ActionBarActivity {
 		description=(EditText) findViewById(R.id.descriptionedit);
 		date_tache=(EditText) findViewById(R.id.dateedit);
 		num=(EditText) findViewById(R.id.ordreedit);
-		depanneur=(EditText) findViewById(R.id.depanneuredit);
+		//depanneur=(EditText) findViewById(R.id.depanneuredit);
+		spindep=(Spinner) findViewById(R.id.depanneuredit);
 		error=(TextView) findViewById(R.id.erreur);
 		creer=(Button)findViewById(R.id.ajouter);
 		reset=(Button)findViewById(R.id.reset);
@@ -56,12 +62,23 @@ public class CreerTache extends ActionBarActivity {
 			Intent i=getIntent();			
 			id = Integer.parseInt(i.getStringExtra("sendid"));
 			Log.d("creer get i",""+id);
-			list = i.getParcelableExtra(MainActivity.LISTDEP);
-			Log.d("creer get i","liste ok");
+			listUser = i.getParcelableExtra(MainActivity.LISTDEP);
+			Log.d("creer get i","listeUseer ok");
 		}catch(Exception ex){
 			Log.d("Test Intend creer",""+ex.getMessage());
 		}
+		
+		List<String> list = new ArrayList<String>();
+		Iterator<UserDB> it = listUser.iterator();
+		for (UserDB us : listUser) {
+			it.next();			
+			list.add(it.toString());
 			
+			//list.add (""+listUser.getNom()+ " "+listUser(n).getPrenom());
+		}
+		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, list);
+		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		spindep.setAdapter(dataAdapter);
 		
 		//id = 3;
 		creer.setOnClickListener(
@@ -90,6 +107,11 @@ public class CreerTache extends ActionBarActivity {
 				  }
 				);
 	    	    
+	}
+
+	private void While() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override

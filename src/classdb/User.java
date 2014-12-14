@@ -91,7 +91,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "iduser=" + iduser + ", nom=" + nom + ", prenom=" + prenom + ", login=" + login + ", motdepasse=" + motdepasse + ", admin=" + admin + '}';
+        return "" + nom + " " + prenom ;
     }
         
 }
