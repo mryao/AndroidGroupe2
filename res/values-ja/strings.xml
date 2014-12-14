@@ -23,5 +23,6 @@
     <string name="title_activity_menu_admin">管理者設定メニュー</string>
     <string name="AffTacheStaff">Afficher tâches staff</string>
     <string name="CreerTache">Créer tâche</string>
+    <string name="Loading">荷重...</string>
 
 </resources>

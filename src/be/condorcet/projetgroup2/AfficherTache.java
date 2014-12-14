@@ -106,7 +106,7 @@ public class AfficherTache extends Activity {
 					protected void onPreExecute(){
 						 super.onPreExecute();
 				         pgd=new ProgressDialog(AfficherTache.this);
-						 pgd.setMessage("Affichage des tâches en cours");
+						 pgd.setMessage(getString(R.string.Loading));
 						 pgd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 			     		 pgd.show();
 													

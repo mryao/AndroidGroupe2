@@ -114,7 +114,7 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 				protected void onPreExecute(){
 					 super.onPreExecute();
 			         pgd=new ProgressDialog(MainActivity.this);
-					 pgd.setMessage("connexion à la base de données en cours");
+					 pgd.setMessage(getString(R.string.Loading));
 					 pgd.setProgressStyle(ProgressDialog.STYLE_SPINNER);
 		     		 pgd.show();
 												
