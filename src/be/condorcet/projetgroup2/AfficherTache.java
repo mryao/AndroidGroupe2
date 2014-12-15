@@ -42,13 +42,13 @@ public class AfficherTache extends Activity {
 			Log.d("Test Intend",""+ex.getMessage());
 		}
 		
-		
-		
-		MyAccesDB adb = new MyAccesDB(AfficherTache.this);
-		adb.execute();
-		
 		ArrayAdapter<UserDB> adapter = new  ArrayAdapter<UserDB>(this,android.R.layout.simple_list_item_1, listUser);
 		liste.setAdapter(adapter);
+		
+		//MyAccesDB adb = new MyAccesDB(AfficherTache.this);
+		//adb.execute();
+		
+		
 		
 	}
 	
