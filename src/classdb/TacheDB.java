@@ -184,7 +184,8 @@ public class TacheDB extends Tache implements CRUD, Parcelable{
                 int depanneurtmp = rs.getInt("DEPANNEUR");
                 int createurtmp = rs.getInt("CREATEUR");
                 
-                tachesDepanneur.add(new TacheDB(idtachetmp,titretmp,descriptiontmp,etattmp,datetmp,ordretmp,depanneurtmp,createurtmp));
+                //tachesDepanneur.add(new TacheDB(idtachetmp,titretmp,descriptiontmp,etattmp,datetmp,ordretmp,depanneurtmp,createurtmp));
+                tachesDepanneur.add(new TacheDB(titretmp));
             }
             if(!trouve)throw new Exception("rien trouvé");
             else return tachesDepanneur;

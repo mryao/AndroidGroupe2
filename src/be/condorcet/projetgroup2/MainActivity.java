@@ -150,8 +150,9 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 					    }
 					    else{
 					    	Log.d("test liste","réception des tâches");
-					    	TacheDB tache=new TacheDB(resultatId);
-						    list2=tache.tachesDepanneur(resultatId);
+					    	//TacheDB tache = new TacheDB(resultatId);
+						    list2 = TacheDB.tachesDepanneur(resultatId);
+						    Log.d("test liste","tâches reçues");
 					    }				    
 					    			        		
 			        }
