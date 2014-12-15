@@ -69,6 +69,7 @@ public class CreerTache extends ActionBarActivity {
 			Log.d("Test Intend creer",""+ex.getMessage());
 		}
 		
+		/*
 		List<String> list = new ArrayList<String>();
 		Iterator<UserDB> it = listUser.iterator();
 		for (UserDB us : listUser) {
@@ -81,10 +82,11 @@ public class CreerTache extends ActionBarActivity {
 		ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, list);
 		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spindep.setAdapter(dataAdapter);
+		*/
+		DBListeDep dbld = new DBListeDep(CreerTache.this);
+		dbld.execute();
 		
 		
-		
-		//id = 3;
 		creer.setOnClickListener(
 				new OnClickListener(){					
 					public void onClick(View v){																

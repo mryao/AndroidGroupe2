@@ -16,6 +16,11 @@
     <string name="connexion">Connection</string>
     <string name="loginLB">Login :</string>
     <string name="PasswordLB">Password :</string>
+    <string name="title_activity_afficher_tache">Task display</string>
+    <string name="AffStaff">Staff display</string>
+    <string name="Deco">Deconnexion</string>
+    <string name="title_activity_menu_admin">Menu Administrateur</string>
     <string name="Loading">Loading...</string>
+    
 
 </resources>
