@@ -140,16 +140,20 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 			        	String ulogin=ed1.getText().toString();	
 					    String upassword=ed2.getText().toString();
 					    UserDB us=new UserDB(ulogin,upassword);	
-					    Log.d("test",""+ resultatId);
 					    us.logon(ulogin, upassword);
 					    resultatId = us.getIduser();
+					    Log.d("test id entré",""+ resultatId);
 					    resultatAdmin = us.getAdmin();
-					    list = us.all();
-					    Log.d("test",""+ resultatId);
-					    
-					    TacheDB tache=new TacheDB(resultatId);
-					    list2=tache.tachesDepanneur(resultatId);
-			        		
+					    Log.d("test valeur champ admin",""+ resultatAdmin);
+					    if (resultatAdmin == 1){
+					    	list = us.all();
+					    }
+					    else{
+					    	Log.d("test liste","réception des tâches");
+					    	TacheDB tache=new TacheDB(resultatId);
+						    list2=tache.tachesDepanneur(resultatId);
+					    }				    
+					    			        		
 			        }
 			        catch(Exception e){		             
 			         resultat="Erreur :" +e.getMessage();
