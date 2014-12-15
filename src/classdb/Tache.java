@@ -1,7 +1,6 @@
 
 package classdb;
 
-import java.util.Date;
 
 public class Tache {
     
