@@ -20,6 +20,7 @@
     <string name="AffStaff">Staff display</string>
     <string name="Deco">Deconnexion</string>
     <string name="title_activity_menu_admin">Menu Administrateur</string>
+    <string name="CreerTache">Create task</string>
     <string name="Loading">Loading...</string>
     
 

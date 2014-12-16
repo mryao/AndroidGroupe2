@@ -35,9 +35,9 @@ public class AfficherTache extends Activity {
 		try{
 			Intent i=getIntent();			
 			id = Integer.parseInt(i.getStringExtra("sendid2"));
-			Log.d("robin",""+id);
+			Log.d("getExtra",""+id);
 			listUser = i.getParcelableArrayListExtra(MainActivity.LISTTACHE);
-			Log.d("afficher get i","listeTache ok");
+			Log.d("afficher get i",""+listUser.toArray());
 		}catch(Exception ex){
 			Log.d("Test Intend",""+ex.getMessage());
 		}
