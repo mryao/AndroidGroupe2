@@ -117,7 +117,7 @@ public class Tache {
 
     @Override
     public String toString() {
-        return "Tache{" + "idtache=" + idtache + ", titre=" + titre + ", description=" + description + ", etat=" + etat + ", date_tache=" + date_tache + ", num_ordre=" + num_ordre + ", depanneur=" + depanneur + ", createur=" + createur + '}';
+        return titre + "  " + date_tache + "  "+ num_ordre;
     }
     
 }

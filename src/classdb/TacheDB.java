@@ -169,25 +169,27 @@ public class TacheDB extends Tache implements CRUD, Parcelable{
         //CallableStatement cstmt=null;
         try {
             boolean trouve=false;
-            String query1="SELECT * FROM (SELECT * FROM tâche WHERE depanneur = ? order by NUM_ORDRE) order by DATE_TACHE";
+            String query1="SELECT * FROM tâche WHERE depanneur = ? order by DATE_TACHE,NUM_ORDRE;";
             Log.d("tacheDB", ""+iddep);
-            //cstmt = dbConnect.prepareCall(query1);Log.d("tacheDB", "test1");
-            PreparedStatement pstm1 = dbConnect.prepareStatement(query1);Log.d("tacheDB", "test1");	
-            pstm1.setInt(1,iddep);Log.d("tacheDB", "test2");
-            ResultSet rs= pstm1.executeQuery();Log.d("tacheDB", "test3");
+            PreparedStatement pstm1 = dbConnect.prepareStatement(query1);	
+            pstm1.setInt(1,iddep);
+            ResultSet rs= pstm1.executeQuery();
             while(rs.next()){
-                trouve=true;Log.d("tacheDB", "test4");
+                trouve=true;
                 int idtachetmp = rs.getInt("ID_TACHE");
                 String titretmp = rs.getString("TITRE");
                 String descriptiontmp = rs.getString("DESCRIPTION");
                 String etattmp = rs.getString("ETAT");
-                String datetmp = rs.getString("DATE_TACHE");
+                java.sql.Date datetmp = rs.getDate("DATE_TACHE");
                 int ordretmp = rs.getInt("NUM_ORDRE");
                 int depanneurtmp = rs.getInt("DEPANNEUR");
                 int createurtmp = rs.getInt("CREATEUR");
-                Log.d("tacheDB", "test5");
-                tachesDepanneur.add(new TacheDB(idtachetmp,titretmp,descriptiontmp,etattmp,datetmp,ordretmp,depanneurtmp,createurtmp));
-                //tachesDepanneur.add(new TacheDB(titretmp));
+                
+                DateFormat df = new SimpleDateFormat("dd/MM/yyyy");  
+                String datestring = df.format(datetmp); 
+                                                
+                tachesDepanneur.add(new TacheDB(idtachetmp,titretmp,descriptiontmp,etattmp,datestring,ordretmp,depanneurtmp,createurtmp));
+                
                 Log.d("tacheDB", tachesDepanneur.toString());
             }
             if(!trouve)throw new Exception("rien trouvé");
