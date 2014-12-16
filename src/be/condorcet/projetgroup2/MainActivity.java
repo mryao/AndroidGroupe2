@@ -97,7 +97,7 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 	    private int resultatAdmin = 2;
 	    private ProgressDialog pgd=null;
 	    private ArrayList<UserDB>list = new ArrayList();
-	    private ArrayList<TacheDB>list2 = new ArrayList();
+	    private ArrayList<TacheDB>list2 =new ArrayList();
 	    
 							
 				public MyAccesDB(MainActivity pActivity) {
