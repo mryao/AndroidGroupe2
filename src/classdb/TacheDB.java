@@ -169,7 +169,7 @@ public class TacheDB extends Tache implements CRUD, Parcelable{
         //CallableStatement cstmt=null;
         try {
             boolean trouve=false;
-            String query1="SELECT * FROM (SELECT * FROM tâche WHERE depanneur = ? order by NUM_ORDRE) order by DATE_TACHE;";
+            String query1="SELECT * FROM (SELECT * FROM tâche WHERE depanneur = ? order by NUM_ORDRE) order by DATE_TACHE";
             Log.d("tacheDB", ""+iddep);
             //cstmt = dbConnect.prepareCall(query1);Log.d("tacheDB", "test1");
             PreparedStatement pstm1 = dbConnect.prepareStatement(query1);Log.d("tacheDB", "test1");	

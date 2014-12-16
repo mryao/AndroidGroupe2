@@ -132,6 +132,7 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 					    }
 				  
 					   UserDB.setConnection(con);
+					   TacheDB.setConnection(con);
 					   Log.d("connexionDoIN","connexion OK");
 				   }
 				    
