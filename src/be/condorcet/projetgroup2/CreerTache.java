@@ -101,7 +101,7 @@ public class CreerTache extends ActionBarActivity {
 				  }
 				);
 	    
-	  reset.setOnClickListener(
+	    reset.setOnClickListener(
 				new OnClickListener(){					
 					public void onClick(View v){
 						titre.setText("");
