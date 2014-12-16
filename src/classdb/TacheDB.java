@@ -166,11 +166,12 @@ public class TacheDB extends Tache implements CRUD, Parcelable{
     
     public static ArrayList<TacheDB>tachesDepanneur(int iddep) throws Exception {//arraylist qui contient les tâches d'un dépanneur
         ArrayList<TacheDB> tachesDepanneur = new ArrayList<TacheDB>();
-        CallableStatement cstmt=null;
+        //CallableStatement cstmt=null;
         try {
             boolean trouve=false;
-            String query1="SELECT * FROM (SELECT * FROM tâche WHERE depanneur = ? order by NUM_ORDRE) order by DATE_TACHE";
-            Log.d("tacheDB", ""+iddep);		
+            String query1="SELECT * FROM (SELECT * FROM tâche WHERE depanneur = ? order by NUM_ORDRE) order by DATE_TACHE;";
+            Log.d("tacheDB", ""+iddep);
+            //cstmt = dbConnect.prepareCall(query1);Log.d("tacheDB", "test1");
             PreparedStatement pstm1 = dbConnect.prepareStatement(query1);Log.d("tacheDB", "test1");	
             pstm1.setInt(1,iddep);Log.d("tacheDB", "test2");
             ResultSet rs= pstm1.executeQuery();Log.d("tacheDB", "test3");
