@@ -175,7 +175,7 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 							  Intent i = new Intent(MainActivity.this,MenuAdmin.class);
 							  i.putExtra("sendid2",""+resultatId);
 							  i.putParcelableArrayListExtra(LISTDEP, list);
-							  Log.d("PostExe",""+resultatId);
+							  Log.d("PostExe id",""+resultatId);
 							  startActivity(i);
 							  finish();
 						  }
@@ -184,6 +184,7 @@ class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 							  i.putExtra("sendid2",""+resultatId);
 							  i.putParcelableArrayListExtra(LISTTACHE, list2);
 							  Log.d("PostExe",""+resultatId);
+							  Log.d("PostExe list",""+list2.toString());
 							  startActivity(i);
 							  finish();
 						  }
