@@ -8,6 +8,7 @@ import java.util.*;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 public class TacheDB extends Tache implements CRUD, Parcelable{
     protected static Connection dbConnect = null;
@@ -169,12 +170,12 @@ public class TacheDB extends Tache implements CRUD, Parcelable{
         try {
             boolean trouve=false;
             String query1="SELECT * FROM (SELECT * FROM tâche WHERE depanneur = ? order by NUM_ORDRE) order by DATE_TACHE";
-            		
-            PreparedStatement pstm1 = dbConnect.prepareStatement(query1);
-            pstm1.setInt(1,iddep);
-            ResultSet rs= pstm1.executeQuery();
+            Log.d("tacheDB", ""+iddep);		
+            PreparedStatement pstm1 = dbConnect.prepareStatement(query1);Log.d("tacheDB", "test1");	
+            pstm1.setInt(1,iddep);Log.d("tacheDB", "test2");
+            ResultSet rs= pstm1.executeQuery();Log.d("tacheDB", "test3");
             while(rs.next()){
-                trouve=true;
+                trouve=true;Log.d("tacheDB", "test4");
                 int idtachetmp = rs.getInt("ID_TACHE");
                 String titretmp = rs.getString("TITRE");
                 String descriptiontmp = rs.getString("DESCRIPTION");
@@ -183,9 +184,10 @@ public class TacheDB extends Tache implements CRUD, Parcelable{
                 int ordretmp = rs.getInt("NUM_ORDRE");
                 int depanneurtmp = rs.getInt("DEPANNEUR");
                 int createurtmp = rs.getInt("CREATEUR");
-                
+                Log.d("tacheDB", "test5");
                 //tachesDepanneur.add(new TacheDB(idtachetmp,titretmp,descriptiontmp,etattmp,datetmp,ordretmp,depanneurtmp,createurtmp));
                 tachesDepanneur.add(new TacheDB(titretmp));
+                Log.d("tacheDB", tachesDepanneur.toString());
             }
             if(!trouve)throw new Exception("rien trouvé");
             else return tachesDepanneur;
