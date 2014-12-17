@@ -111,13 +111,22 @@
 	        android:layout_marginTop="15dp"
 	        android:text="@string/depanneur" />
 	    
-	    <Spinner
+	    <!--<Spinner
 	        android:id="@+id/depanneuredit"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:layout_alignLeft="@+id/depanneur5"
 	        android:layout_below="@+id/depanneur5"
-	        android:layout_marginTop="15dp" />
+	        android:layout_marginTop="15dp" />-->
+	    
+	    <EditText
+	        android:id="@+id/depanneuredit"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignBottom="@+id/depanneur5"
+	        android:layout_alignLeft="@+id/ordreedit"
+	        android:ems="10"
+	        android:inputType="number" />
 	    
 	    <TextView
 	        android:id="@+id/erreur"

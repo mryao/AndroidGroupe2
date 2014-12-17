@@ -34,7 +34,7 @@ public class CreerTache extends ActionBarActivity {
 	private EditText date_tache;
 	private EditText num;
 	private EditText depanneur;
-	private Spinner spindep;
+	//private Spinner spindep;
 	private TextView error;
 	private Button creer;
 	private Button reset;
@@ -52,8 +52,8 @@ public class CreerTache extends ActionBarActivity {
 		description=(EditText) findViewById(R.id.descriptionedit);
 		date_tache=(EditText) findViewById(R.id.dateedit);
 		num=(EditText) findViewById(R.id.ordreedit);
-		//depanneur=(EditText) findViewById(R.id.depanneuredit);
-		spindep=(Spinner) findViewById(R.id.depanneuredit);
+		depanneur=(EditText) findViewById(R.id.depanneuredit);
+		//spindep=(Spinner) findViewById(R.id.depanneuredit);
 		error=(TextView) findViewById(R.id.erreur);
 		creer=(Button)findViewById(R.id.ajouter);
 		reset=(Button)findViewById(R.id.reset);
@@ -83,8 +83,8 @@ public class CreerTache extends ActionBarActivity {
 		dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		spindep.setAdapter(dataAdapter);
 		*/
-		DBListeDep dbld = new DBListeDep(CreerTache.this);
-		dbld.execute();
+		//DBListeDep dbld = new DBListeDep(CreerTache.this);
+		//dbld.execute();
 		
 		
 		creer.setOnClickListener(
@@ -149,7 +149,7 @@ public class CreerTache extends ActionBarActivity {
 		
 	}
 	
-	class DBListeDep extends AsyncTask<String,Integer,Boolean> {
+/*	class DBListeDep extends AsyncTask<String,Integer,Boolean> {
 	    private String resultat;
 	    private ProgressDialog pgd=null;
 	    private ArrayList<UserDB> listedep = new ArrayList<UserDB>();
@@ -224,7 +224,7 @@ public class CreerTache extends ActionBarActivity {
 
 					  }		
 				}
-			}
+			}*/
 	
 	 class MyAccesDB extends AsyncTask<String,Integer,Boolean> {
 		    private String resultat;
